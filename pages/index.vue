@@ -23,9 +23,18 @@ export interface Card {
   name: String
   thumb_url: String | null
   priority: Number,
-  due_date: any
+  due_date: DueDate | null
   status: String
-  enrollment?: any
+  enrollment?: Enrollment
+}
+
+export interface DueDate {
+  available_at: Number
+}
+
+export interface Enrollment {
+  id: String
+  percentage: Number
 }
 
 @Component({ name: 'IndexPage', components: { Logo } })
