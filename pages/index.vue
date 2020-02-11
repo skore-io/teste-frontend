@@ -1,48 +1,18 @@
 <template>
   <b-container>
-    <div>
-      <v-card />
-      <h1>teste-frontend</h1>
-      <h2>My mind-blowing Nuxt.js project</h2>
-      <div>
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-      </div>
-    </div>
+    <section>
+      <h3>Missions</h3>
+      <b-row>
+        <v-card v-for="card in cards" :key="card.id" />
+      </b-row>
+    </section>
   </b-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
-import VCard from '~/components/Card.vue'
-
-export interface Card {
-  id: String
-  company_id: String
-  name: String
-  thumb_url: String | null
-  priority: Number,
-  due_date: DueDate | null
-  status: String
-  enrollment?: Enrollment
-}
-
-export interface DueDate {
-  available_at: Number
-}
-
-export interface Enrollment {
-  id: String
-  percentage: Number
-}
-
-export enum Status {
-  IN_PROGRESS = 'IN_PROGRESS',
-  NOT_STARTED = 'NOT_STARTED',
-  COMPLETED = 'COMPLETED',
-  BLOCKED = 'BLOCKED'
-}
+import VCard, { Card } from '~/components/Card.vue'
 
 @Component({ name: 'IndexPage', components: { VCard } })
 export default class IndexPage extends Vue {
@@ -52,7 +22,7 @@ export default class IndexPage extends Vue {
     }
   }
 
-  get items (): Array<Card> {
+  get cards (): Array<Card> {
     return [
       {
         id: '15a9LAUXCm9FkAVexH4q',
