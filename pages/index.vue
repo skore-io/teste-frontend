@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <div>
-      <logo />
+      <v-card />
       <h1>teste-frontend</h1>
       <h2>My mind-blowing Nuxt.js project</h2>
       <div>
@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
-import Logo from '~/components/Logo.vue'
+import VCard from '~/components/Card.vue'
 
 export interface Card {
   id: String
@@ -44,7 +44,7 @@ export enum Status {
   BLOCKED = 'BLOCKED'
 }
 
-@Component({ name: 'IndexPage', components: { Logo } })
+@Component({ name: 'IndexPage', components: { VCard } })
 export default class IndexPage extends Vue {
   head (): MetaInfo {
     return {
