@@ -12,5 +12,7 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript'
   ],
 
-  rules: {}
+  rules: {
+    camelcase: "off"
+  }
 }
