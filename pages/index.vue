@@ -37,6 +37,13 @@ export interface Enrollment {
   percentage: Number
 }
 
+export enum Status {
+  IN_PROGRESS = 'IN_PROGRESS',
+  NOT_STARTED = 'NOT_STARTED',
+  COMPLETED = 'COMPLETED',
+  BLOCKED = 'BLOCKED'
+}
+
 @Component({ name: 'IndexPage', components: { Logo } })
 export default class IndexPage extends Vue {
   head (): MetaInfo {
