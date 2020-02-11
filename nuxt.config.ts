@@ -22,8 +22,8 @@ const config: Configuration = {
   plugins: [],
 
   buildModules: [
-    '@nuxtjs/eslint-module',
-    '@nuxt/typescript-build'
+    ['@nuxt/typescript-build', {}],
+    ['@nuxtjs/eslint-module', {}]
   ],
 
   modules: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <b-container>
     <div>
       <logo />
       <h1 class="title">
@@ -9,45 +9,29 @@
         My mind-blowing Nuxt.js project
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
-<script>
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator'
+import { MetaInfo } from 'vue-meta'
 import Logo from '~/components/Logo.vue'
 
-export default {
-  components: {
-    Logo
+@Component({ name: 'IndexPage', components: { Logo } })
+export default class IndexPage extends Vue {
+  head (): MetaInfo {
+    return {
+      title: 'Index'
+    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

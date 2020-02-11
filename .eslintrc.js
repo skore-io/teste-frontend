@@ -6,10 +6,6 @@ module.exports = {
     node: true
   },
 
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
-
   extends: [
     '@nuxtjs',
     'plugin:nuxt/recommended',
