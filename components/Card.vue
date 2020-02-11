@@ -1,10 +1,15 @@
 <template>
   <b-card bg-variant="light" :img-src="data.thumb_url" body-class="px-2" overlay>
     <b-row class="h-100 text-center" align-content="between" no-gutters>
-      <div />
-      <div class="card-title">
-        {{ data.name }}
+      <div>
+        <div v-if="hasDueDate" class="bg-success text-white px-2 rounded">
+          <i class="fa fa-clock-o" />
+          <span>{{ formatedAvailableAt }}</span>
+        </div>
       </div>
+      <b-card-title class="text-muted">
+        {{ data.name }}
+      </b-card-title>
       <div class="w-100">
         <b-progress v-if="hasEnrollment" :value="data.enrollment.percentage" :variant="statusClass.variant" show-progress animated />
         <b-badge v-else :variant="statusClass.variant" pill>
@@ -19,23 +24,23 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 export interface Card {
-  id: String
-  company_id: String
-  name: String
-  thumb_url: String | null
-  priority: Number,
+  id: string
+  company_id: string
+  name: string
+  thumb_url: string | null
+  priority: number,
   due_date: DueDate | null
-  status: String
+  status: string
   enrollment?: Enrollment
 }
 
 export interface DueDate {
-  available_at: Number
+  available_at: number
 }
 
 export interface Enrollment {
-  id: String
-  percentage: Number
+  id: string
+  percentage: number
 }
 
 export enum Status {
@@ -86,6 +91,24 @@ export default class VCard extends Vue {
           icon: 'fa-edit'
         }
     }
+  }
+
+  get hasDueDate ():Boolean {
+    return !!this.data.due_date
+  }
+
+  get availableAt (): Date | null {
+    return this.data.due_date ? new Date(this.data.due_date.available_at) : null
+  }
+
+  get formatedAvailableAt (): String {
+    if (!this.availableAt) {
+      return ''
+    }
+    const day = this.availableAt.getDate()
+    const month = this.availableAt.getMonth() + 1
+
+    return `${day}/${month}`
   }
 }
 </script>
