@@ -20,7 +20,8 @@ describe('Card Component', () => {
             percentage: 21
           }
         }
-      }
+      },
+      stubs: ['b-row', 'b-progress', 'b-card', 'b-card-title']
     })
     expect(wrapper.isVueInstance()).toBeTruthy()
     const vm = wrapper.vm
