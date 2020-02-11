@@ -1,7 +1,8 @@
 <template>
   <b-container>
-    <section>
+    <section class="py-5">
       <h3>Missões</h3>
+      <div class="border-top py-2" />
       <b-card-group deck>
         <v-card v-for="card in cards" :key="card.id" :data="card" />
       </b-card-group>
