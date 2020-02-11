@@ -1,12 +1,10 @@
 <template>
   <b-container>
     <section>
-      <h3>Missions</h3>
-      <b-row>
-        <template v-for="card in cards">
-          <v-card :key="card.id" :data="card" />
-        </template>
-      </b-row>
+      <h3>Missões</h3>
+      <b-card-group deck>
+        <v-card v-for="card in cards" :key="card.id" :data="card" />
+      </b-card-group>
     </section>
   </b-container>
 </template>
@@ -88,7 +86,7 @@ export default class IndexPage extends Vue {
         due_date: null
       },
       {
-        id: 'Jx0TJYrLFhYOeIc4boBL',
+        id: 'LFhYOeIc4boBLJx0TJYr',
         company_id: '114',
         name: 'Site Reliability Engineer',
         thumb_url: 'https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png',
