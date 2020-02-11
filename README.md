@@ -111,7 +111,7 @@ Com a seguinte representação de uma lista de resumo de missões:
 
 Construa uma aplicação que renderize da maneira mais próxima desse print:
 
-![Alt text](pages.png?raw=true "Print Exemplo")
+![Alt text](https://user-images.githubusercontent.com/10992150/74205804-97bf8c00-4c57-11ea-9dc0-36ee88e7a10d.png)
 
 ### Dicas
 
