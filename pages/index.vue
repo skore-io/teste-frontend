@@ -3,7 +3,9 @@
     <section>
       <h3>Missions</h3>
       <b-row>
-        <v-card v-for="card in cards" :key="card.id" />
+        <template v-for="card in cards">
+          <v-card :key="card.id" :data="card" />
+        </template>
       </b-row>
     </section>
   </b-container>

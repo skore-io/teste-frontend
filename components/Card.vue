@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 export interface Card {
     id: String
@@ -48,7 +48,8 @@ export enum Status {
     BLOCKED = 'BLOCKED'
   }
 
-  @Component({ name: 'VCard' })
+@Component({ name: 'VCard' })
 export default class VCard extends Vue {
+  @Prop({ type: Object, required: true }) readonly data!: Card
 }
 </script>
