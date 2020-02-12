@@ -23,11 +23,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { Card, Status, StatusCard } from '~/store'
+import { CardInterface, Status, StatusCard } from '~/store'
 
   @Component({ name: 'VCard' })
 export default class VCard extends Vue {
-    @Prop({ type: Object, required: true }) readonly data!: Card
+    @Prop({ type: Object, required: true }) readonly data!: CardInterface
 
     get hasEnrollment (): Boolean {
       return !!this.data.enrollment

@@ -1,4 +1,4 @@
-export interface Card {
+export interface CardInterface {
   id: string
   company_id: string
   name: string
@@ -31,7 +31,7 @@ export interface StatusCard {
 }
 
 export default interface IndexStore {
-  cards: Array<Card>
+  cards: Array<CardInterface>
 }
 
 export const state = (): IndexStore => ({
@@ -110,7 +110,7 @@ export const state = (): IndexStore => ({
 })
 
 export const getters = {
-  cards ({ cards }: IndexStore): Array<Card> {
+  cards ({ cards }: IndexStore): Array<CardInterface> {
     return cards
   }
 }

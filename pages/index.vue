@@ -11,11 +11,11 @@
 import { Component, Getter, Vue } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
 import VCard from '~/components/Card.vue'
-import { Card } from '~/store'
+import { CardInterface } from '~/store'
 
   @Component({ name: 'IndexPage', components: { VCard } })
 export default class IndexPage extends Vue {
-    @Getter('cards') cards!: Array<Card>
+    @Getter('cards') cards!: Array<CardInterface>
 
     head (): MetaInfo {
       return {
