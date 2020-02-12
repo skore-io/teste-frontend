@@ -5,7 +5,7 @@ const data = {
   id: '15a9LAUXCm9FkAVexH4q',
   company_id: '114',
   name: 'Desenvolvedor Backend',
-  thumb_url: 'https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png',
+  thumb_url: null,
   priority: 1,
   due_date: {
     available_at: 1572127435329
@@ -42,5 +42,9 @@ describe('Card Component', () => {
 
   test('has formatted available date icon', () => {
     expect(vm.formatedAvailableAt).toStrictEqual('26/10')
+  })
+
+  test('has default picture if doesnt have a thumb_url', () => {
+    expect(vm.picture).toStrictEqual('https://www.fillmurray.com/150/240')
   })
 })
