@@ -9,7 +9,7 @@
       <div class="title">
         {{ data.name }}
       </div>
-      <div class="counter">
+      <div class="counter" :title="data.status">
         <div v-if="hasEnrollment" class="progress">
           <div class="progress-bar" :style="{width: `${data.enrollment.percentage}%`}" />
         </div>
