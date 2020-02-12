@@ -1,15 +1,15 @@
 <template>
   <div class="card">
-    <img class="card-img" :src="data.thumb_url">
-    <div class="card-img-overlay row align-content-between">
-      <div class="bg-success text-white px-2 rounded">
+    <img :src="data.thumb_url">
+    <div class="card-content">
+      <div class="chip">
         <i class="fa fa-clock-o" />
         <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
       </div>
       <div class="title">
         {{ data.name }}
       </div>
-      <div class="w-100">
+      <div class="counter">
         <b-progress v-if="hasEnrollment" :value="data.enrollment.percentage" :variant="statusClass.variant" />
         <b-badge v-else :variant="statusClass.variant" pill>
           <i class="fa" :class="statusClass.icon" />
@@ -90,9 +90,40 @@ export default class VCard extends Vue {
     color: white;
     background-color: #6c757d !important;
 
-    .title {
-      background: #0000003b;
-      border-radius: 10px;
+    img {
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .card-content {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1.25rem .25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between !important;
+
+      .chip {
+        background-color: #006600;
+        padding: 0.25em 0.4em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        border-radius: 0.25rem;
+      }
+
+      .title {
+        background: #0000003b;
+        border-radius: 10px;
+      }
+
+      .counter {
+        width: 100% !important;
+      }
     }
   }
+
 </style>
