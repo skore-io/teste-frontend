@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { Card, Status, StatusCard } from '../store/index.ts'
+import { Card, Status, StatusCard } from '~/store'
 
   @Component({ name: 'VCard' })
 export default class VCard extends Vue {
