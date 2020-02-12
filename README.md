@@ -29,9 +29,9 @@ Ele também pode clicar em uma missão e ir para tela de detalhes.
 
 Endpoints:
 
-* Listagem de missões: `TBD`
+* Listagem de missões: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions`
 
-* Missão por id: `TBD`
+* Missão por id: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/{id}`
 
 ### Tarefas
 
