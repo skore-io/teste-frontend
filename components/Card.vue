@@ -1,7 +1,7 @@
 <template>
-  <div class="card">
+  <div class="tag">
     <img :src="data.thumb_url" alt="">
-    <div class="card-content">
+    <div class="tag-content">
       <div class="chip">
         <i class="fa fa-clock-o" />
         <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
@@ -84,20 +84,27 @@ export default class VCard extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .card {
+  .tag {
     flex: 1 0 0;
     margin-right: 15px;
     margin-left: 15px;
     text-align: center;
     color: white;
     background-color: #6c757d !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border-radius: 0.25rem;
+    border: black 1px solid;
 
     img {
       flex-shrink: 0;
       width: 100%;
     }
 
-    .card-content {
+    .tag-content {
       position: absolute;
       top: 0;
       right: 0;
