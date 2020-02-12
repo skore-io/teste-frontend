@@ -11,19 +11,19 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Getter } from 'nuxt-property-decorator'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
 import VCard from '~/components/Card.vue'
 import { Card } from '~/store'
 
-@Component({ name: 'IndexPage', components: { VCard } })
+  @Component({ name: 'IndexPage', components: { VCard } })
 export default class IndexPage extends Vue {
-  @Getter('cards') cards!: Array<Card>
+    @Getter('cards') cards!: Array<Card>
 
-  head (): MetaInfo {
-    return {
-      title: 'Index'
+    head (): MetaInfo {
+      return {
+        title: 'Index'
+      }
     }
-  }
 }
 </script>

@@ -10,7 +10,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
 
-@Component({ name: 'DefaultLayout' })
+  @Component({ name: 'DefaultLayout' })
 export default class DefaultLayout extends Vue {
   head (): MetaInfo {
     return {
