@@ -21,7 +21,7 @@ const wrapper = mount(Card, {
   propsData: { data },
   stubs: ['b-row', 'b-progress', 'b-card', 'b-card-title']
 })
-const vm = wrapper.vm
+const vm: Card | any = wrapper.vm
 
 describe('Card Component', () => {
   test('is a Vue instance', () => {
@@ -37,7 +37,7 @@ describe('Card Component', () => {
   })
 
   test('has variant and icon', () => {
-    expect(vm.statusClass).toStrictEqual({ icon: 'fa-tasks', variant: 'warning' })
+    expect(vm.statusClass).toStrictEqual({ icon: 'fa-tasks', variant: 'bg-warning' })
   })
 
   test('has formatted available date icon', () => {
