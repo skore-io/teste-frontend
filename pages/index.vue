@@ -27,12 +27,12 @@ export default class IndexPage extends Vue {
 
 <style lang="scss" scoped>
   section {
+    padding-bottom: 3rem !important;
+    padding-top: 3rem !important;
+
     h3 {
       text-align: center;
     }
-
-    padding-bottom: 3rem !important;
-    padding-top: 3rem !important;
 
     .deck {
       display: flex;
