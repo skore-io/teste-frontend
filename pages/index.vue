@@ -1,7 +1,6 @@
 <template>
   <section>
     <h3>Missões</h3>
-    <div class="border-top py-2" />
     <div class="deck">
       <v-card v-for="card in cards" :key="card.id" :data="card" />
     </div>
@@ -38,6 +37,8 @@ export default class IndexPage extends Vue {
     .deck {
       display: flex;
       flex-flow: row wrap;
+      padding-top: 1.5rem !important;
+      border-top: 1px solid #dee2e6 !important;
     }
   }
 </style>
