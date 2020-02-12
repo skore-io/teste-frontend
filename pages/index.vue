@@ -1,13 +1,11 @@
 <template>
-  <b-container>
-    <section class="py-5">
-      <h3>Missões</h3>
-      <div class="border-top py-2" />
-      <div class="deck">
-        <v-card v-for="card in cards" :key="card.id" :data="card" />
-      </div>
-    </section>
-  </b-container>
+  <section class="py-5">
+    <h3>Missões</h3>
+    <div class="border-top py-2" />
+    <div class="deck">
+      <v-card v-for="card in cards" :key="card.id" :data="card" />
+    </div>
+  </section>
 </template>
 
 <script lang="ts">

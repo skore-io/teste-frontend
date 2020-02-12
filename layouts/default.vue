@@ -1,9 +1,7 @@
 <template>
-  <main>
-    <b-container>
-      <nuxt />
-    </b-container>
-  </main>
+  <div class="container">
+    <nuxt />
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,15 +12,18 @@ import { MetaInfo } from 'vue-meta'
 export default class DefaultLayout extends Vue {
   head (): MetaInfo {
     return {
-      titleTemplate: 'FrontEnd Test - %s - SkoreIO'
+      titleTemplate: 'FrontEnd Test - %s - SkoreIO',
+      bodyAttrs: {
+        style: 'background-color: aliceblue'
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-  main, .container {
+  .container {
     min-height: 100vh;
-    background-color: aliceblue;
+    max-width: 1140px;
   }
 </style>
