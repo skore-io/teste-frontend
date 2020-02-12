@@ -23,6 +23,9 @@ export default class DefaultLayout extends Vue {
 
 <style scoped>
   .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     max-width: 1140px;
   }

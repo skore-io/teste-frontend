@@ -1,5 +1,5 @@
 <template>
-  <section class="py-5">
+  <section>
     <h3>Missões</h3>
     <div class="border-top py-2" />
     <div class="deck">
@@ -27,8 +27,17 @@ export default class IndexPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .deck{
-    display: flex;
-    flex-flow: row wrap;
+  section {
+    h3 {
+      text-align: center;
+    }
+
+    padding-bottom: 3rem !important;
+    padding-top: 3rem !important;
+
+    .deck {
+      display: flex;
+      flex-flow: row wrap;
+    }
   }
 </style>
