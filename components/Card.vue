@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img :src="data.thumb_url">
+    <img :src="data.thumb_url" alt="">
     <div class="card-content">
       <div class="chip">
         <i class="fa fa-clock-o" />
@@ -11,9 +11,9 @@
       </div>
       <div class="counter">
         <b-progress v-if="hasEnrollment" :value="data.enrollment.percentage" :variant="statusClass.variant" />
-        <b-badge v-else :variant="statusClass.variant" pill>
+        <div v-else class="chip" :class="statusClass.variant" pill>
           <i class="fa" :class="statusClass.icon" />
-        </b-badge>
+        </div>
       </div>
     </div>
   </div>
@@ -35,27 +35,27 @@ export default class VCard extends Vue {
       switch (this.data.status) {
         case Status.BLOCKED:
           return {
-            variant: 'danger',
+            variant: 'bg-danger',
             icon: 'fa-lock'
           }
         case Status.COMPLETED:
           return {
-            variant: 'success',
+            variant: 'bg-success',
             icon: 'fa-check'
           }
         case Status.IN_PROGRESS:
           return {
-            variant: 'warning',
+            variant: 'bg-warning',
             icon: 'fa-tasks'
           }
         case Status.NOT_STARTED:
           return {
-            variant: 'dark',
+            variant: 'bg-dark',
             icon: 'fa-clock-o'
           }
         default:
           return {
-            variant: 'transparent',
+            variant: 'bg-transparent',
             icon: 'fa-edit'
           }
       }
@@ -106,15 +106,6 @@ export default class VCard extends Vue {
       flex-wrap: wrap;
       align-content: space-between !important;
 
-      .chip {
-        background-color: #006600;
-        padding: 0.25em 0.4em;
-        font-size: 75%;
-        font-weight: 700;
-        line-height: 1;
-        border-radius: 0.25rem;
-      }
-
       .title {
         background: #0000003b;
         border-radius: 10px;
@@ -124,6 +115,36 @@ export default class VCard extends Vue {
         width: 100% !important;
       }
     }
+  }
+
+  .chip {
+    background-color: #006600 !important;
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 0.25rem;
+  }
+
+  .bg-danger {
+    background-color: red !important;
+  }
+
+  .bg-dark {
+    background-color: black !important;;
+  }
+
+  .bg-warning {
+    background-color: yellow !important;;
+  }
+
+  .bg-success {
+    background-color: green !important;;
+  }
+
+  .bg-transparent {
+    background-color: transparent;
   }
 
 </style>
