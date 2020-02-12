@@ -88,7 +88,7 @@ export default class VCard extends Vue {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
   .card {
     flex: 1 0 0;
     margin-right: 15px;

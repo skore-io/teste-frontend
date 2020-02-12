@@ -28,7 +28,7 @@ export default class IndexPage extends Vue {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
   .deck{
     display: flex;
     flex-flow: row wrap;
