@@ -10,8 +10,10 @@
         {{ data.name }}
       </div>
       <div class="counter">
-        <b-progress v-if="hasEnrollment" :value="data.enrollment.percentage" :variant="statusClass.variant" />
-        <div v-else class="chip" :class="statusClass.variant" pill>
+        <div v-if="hasEnrollment" class="progress">
+          <div class="progress-bar" :style="{width: `${data.enrollment.percentage}%`}" />
+        </div>
+        <div v-else class="chip" :class="statusClass.variant">
           <i class="fa" :class="statusClass.icon" />
         </div>
       </div>
@@ -125,6 +127,26 @@ export default class VCard extends Vue {
     font-weight: 700;
     line-height: 1;
     border-radius: 0.25rem;
+  }
+
+  .progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+
+    .progress-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      background-color: #007bff;
+    }
   }
 
   .bg-danger {
