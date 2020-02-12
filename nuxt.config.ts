@@ -18,7 +18,7 @@ const config: Configuration = {
 
   loading: { color: '#fff' },
 
-  css: [],
+  css: ['~/assets/styles/main'],
 
   plugins: [],
 
@@ -28,8 +28,7 @@ const config: Configuration = {
   ],
 
   modules: [
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    ['@nuxtjs/pwa', {}]
   ]
 }
 
