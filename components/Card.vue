@@ -1,29 +1,22 @@
 <template>
-  <b-card bg-variant="light" :img-src="data.thumb_url" body-class="px-2" overlay>
-    <b-row class="h-100 text-center" align-content="between" no-gutters>
-      <div>
-        <div v-if="hasDueDate" class="bg-success text-white px-2 rounded">
-          <i class="fa fa-clock-o" />
-          <span>{{ formatedAvailableAt }}</span>
-        </div>
+  <div class="card">
+    <img class="card-img" :src="data.thumb_url">
+    <div class="card-img-overlay row align-content-between">
+      <div class="bg-success text-white px-2 rounded">
+        <i class="fa fa-clock-o" />
+        <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
       </div>
-      <b-card-title class="text-muted">
+      <div class="title">
         {{ data.name }}
-      </b-card-title>
+      </div>
       <div class="w-100">
-        <b-progress
-          v-if="hasEnrollment"
-          :value="data.enrollment.percentage"
-          :variant="statusClass.variant"
-          show-progress
-          animated
-        />
+        <b-progress v-if="hasEnrollment" :value="data.enrollment.percentage" :variant="statusClass.variant" />
         <b-badge v-else :variant="statusClass.variant" pill>
           <i class="fa" :class="statusClass.icon" />
         </b-badge>
       </div>
-    </b-row>
-  </b-card>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -93,9 +86,13 @@ export default class VCard extends Vue {
     flex: 1 0 0;
     margin-right: 15px;
     margin-left: 15px;
-  }
+    text-align: center;
+    color: white;
+    background-color: #6c757d !important;
 
-  .card-title {
-    font-size: 120%;
+    .title {
+      background: #0000003b;
+      border-radius: 10px;
+    }
   }
 </style>
