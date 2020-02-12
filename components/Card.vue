@@ -88,10 +88,11 @@ export default class VCard extends Vue {
 }
 </script>
 
-<style scoped>
-  main {
-    min-height: 150px;
-    background-color: palevioletred;
+<style lang="css" scoped>
+  .card {
+    flex: 1 0 0;
+    margin-right: 15px;
+    margin-left: 15px;
   }
 
   .card-title {

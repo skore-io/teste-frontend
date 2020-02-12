@@ -3,9 +3,9 @@
     <section class="py-5">
       <h3>Missões</h3>
       <div class="border-top py-2" />
-      <b-card-group deck>
+      <div class="deck">
         <v-card v-for="card in cards" :key="card.id" :data="card" />
-      </b-card-group>
+      </div>
     </section>
   </b-container>
 </template>
@@ -27,3 +27,10 @@ export default class IndexPage extends Vue {
     }
 }
 </script>
+
+<style lang="css" scoped>
+  .deck{
+    display: flex;
+    flex-flow: row wrap;
+  }
+</style>
