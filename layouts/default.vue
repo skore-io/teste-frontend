@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="box">
     <nuxt />
   </div>
 </template>
@@ -21,12 +21,17 @@ export default class DefaultLayout extends Vue {
 }
 </script>
 
-<style scoped>
-  .container {
+<style lang="scss" scoped>
+  .box {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     max-width: 1140px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 </style>
