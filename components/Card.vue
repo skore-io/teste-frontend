@@ -3,7 +3,7 @@
     <img :src="picture" alt="">
     <div class="tag-content">
       <div class="chip" :style="{ opacity: hasDueDate ? 1 : 0}">
-        <i class="fa fa-clock-o" />
+        <i class="fa fa-calendar" />
         <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
       </div>
       <div class="title">
