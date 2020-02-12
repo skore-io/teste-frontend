@@ -12,10 +12,7 @@ import { MetaInfo } from 'vue-meta'
 export default class DefaultLayout extends Vue {
   head (): MetaInfo {
     return {
-      titleTemplate: 'FrontEnd Test - %s - SkoreIO',
-      bodyAttrs: {
-        style: 'background-color: aliceblue'
-      }
+      titleTemplate: 'FrontEnd Test - %s - SkoreIO'
     }
   }
 }
