@@ -34,6 +34,84 @@ export default interface IndexStore {
   cards: Array<CardInterface>
 }
 
+export class Card implements CardInterface {
+  company_id: string
+  due_date: DueDate | null
+  id: string
+  name: string
+  priority: number
+  status: string
+  thumb_url: string | null
+  enrollment?: Enrollment
+
+  constructor (payload: CardInterface) {
+    this.id = payload.id
+    this.company_id = payload.company_id
+    this.enrollment = payload.enrollment
+    this.priority = payload.priority
+    this.due_date = payload.due_date
+    this.name = payload.name
+    this.status = payload.status
+    this.thumb_url = payload.thumb_url
+  }
+
+  get picture (): string {
+    return this.thumb_url || 'https://www.fillmurray.com/150/240'
+  }
+
+  get hasEnrollment (): Boolean {
+    return !!this.enrollment
+  }
+
+  get hasDueDate (): Boolean {
+    return !!this.due_date
+  }
+
+  get availableAt (): Date | null {
+    return this.due_date ? new Date(this.due_date.available_at) : null
+  }
+
+  get formatedAvailableAt (): String {
+    if (!this.availableAt) {
+      return ''
+    }
+    const day = this.availableAt.getDate()
+    const month = this.availableAt.getMonth() + 1
+
+    return `${day}/${month}`
+  }
+
+  get statusClass (): StatusCard {
+    switch (this.status) {
+      case Status.BLOCKED:
+        return {
+          variant: 'bg-danger',
+          icon: 'fa-lock'
+        }
+      case Status.COMPLETED:
+        return {
+          variant: 'bg-success',
+          icon: 'fa-check'
+        }
+      case Status.IN_PROGRESS:
+        return {
+          variant: 'bg-warning',
+          icon: 'fa-tasks'
+        }
+      case Status.NOT_STARTED:
+        return {
+          variant: 'bg-dark',
+          icon: 'fa-clock-o'
+        }
+      default:
+        return {
+          variant: 'bg-transparent',
+          icon: 'fa-edit'
+        }
+    }
+  }
+}
+
 export const state = (): IndexStore => ({
   cards: [
     {
@@ -111,6 +189,6 @@ export const state = (): IndexStore => ({
 
 export const getters = {
   cards ({ cards }: IndexStore): Array<CardInterface> {
-    return cards
+    return cards.map(card => new Card(card))
   }
 }

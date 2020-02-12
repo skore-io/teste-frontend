@@ -1,20 +1,20 @@
 <template>
   <div class="tag">
-    <img :src="picture" alt="">
+    <img :src="data.picture" alt="">
     <div class="tag-content">
-      <div class="chip" :style="{ opacity: hasDueDate ? 1 : 0}">
+      <div class="chip" :style="{ opacity: data.hasDueDate ? 1 : 0}">
         <i class="fa fa-calendar" />
-        <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
+        <span v-if="data.hasDueDate">{{ data.formatedAvailableAt }}</span>
       </div>
       <div class="title">
         {{ data.name }}
       </div>
       <div class="counter" :title="data.status">
-        <div v-if="hasEnrollment" class="progress">
+        <div v-if="data.hasEnrollment" class="progress">
           <div class="progress-bar" :style="{width: `${data.enrollment.percentage}%`}" />
         </div>
-        <div v-else class="chip" :class="statusClass.variant">
-          <i class="fa" :class="statusClass.icon" />
+        <div v-else class="chip" :class="data.statusClass.variant">
+          <i class="fa" :class="data.statusClass.icon" />
         </div>
       </div>
     </div>
@@ -23,67 +23,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { CardInterface, Status, StatusCard } from '~/store'
+import { Card } from '~/store'
 
   @Component({ name: 'VCard' })
 export default class VCard extends Vue {
-    @Prop({ type: Object, required: true }) readonly data!: CardInterface
-
-    get hasEnrollment (): Boolean {
-      return !!this.data.enrollment
-    }
-
-    get picture (): string {
-      return this.data.thumb_url || 'https://www.fillmurray.com/150/240'
-    }
-
-    get statusClass (): StatusCard {
-      switch (this.data.status) {
-        case Status.BLOCKED:
-          return {
-            variant: 'bg-danger',
-            icon: 'fa-lock'
-          }
-        case Status.COMPLETED:
-          return {
-            variant: 'bg-success',
-            icon: 'fa-check'
-          }
-        case Status.IN_PROGRESS:
-          return {
-            variant: 'bg-warning',
-            icon: 'fa-tasks'
-          }
-        case Status.NOT_STARTED:
-          return {
-            variant: 'bg-dark',
-            icon: 'fa-clock-o'
-          }
-        default:
-          return {
-            variant: 'bg-transparent',
-            icon: 'fa-edit'
-          }
-      }
-    }
-
-    get hasDueDate (): Boolean {
-      return !!this.data.due_date
-    }
-
-    get availableAt (): Date | null {
-      return this.data.due_date ? new Date(this.data.due_date.available_at) : null
-    }
-
-    get formatedAvailableAt (): String {
-      if (!this.availableAt) {
-        return ''
-      }
-      const day = this.availableAt.getDate()
-      const month = this.availableAt.getMonth() + 1
-
-      return `${day}/${month}`
-    }
+    @Prop({ type: Object, required: true }) readonly data!: Card
 }
 </script>
 
