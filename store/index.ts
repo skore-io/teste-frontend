@@ -108,3 +108,9 @@ export const state = (): IndexStore => ({
     }
   ]
 })
+
+export const getters = {
+  cards ({ cards }: IndexStore): Array<Card> {
+    return cards
+  }
+}
