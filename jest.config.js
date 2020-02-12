@@ -9,7 +9,7 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.ts?$': 'ts-jest'
   },
   collectCoverage: true,
   collectCoverageFrom: [
