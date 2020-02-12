@@ -1,8 +1,8 @@
 <template>
   <div class="tag">
-    <img :src="data.thumb_url" alt="">
+    <img :src="picture" alt="">
     <div class="tag-content">
-      <div class="chip">
+      <div class="chip" :style="{ opacity: hasDueDate ? 1 : 0}">
         <i class="fa fa-clock-o" />
         <span v-if="hasDueDate">{{ formatedAvailableAt }}</span>
       </div>
@@ -31,6 +31,10 @@ export default class VCard extends Vue {
 
     get hasEnrollment (): Boolean {
       return !!this.data.enrollment
+    }
+
+    get picture (): string {
+      return this.data.thumb_url || 'https://www.fillmurray.com/150/240'
     }
 
     get statusClass (): StatusCard {
