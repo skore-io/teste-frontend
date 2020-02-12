@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils'
 import Card from '@/components/Card.vue'
+import { Card as StoreCard } from '@/store'
 
-const data = {
+const data = new StoreCard({
   id: '15a9LAUXCm9FkAVexH4q',
   company_id: '114',
   name: 'Desenvolvedor Backend',
@@ -15,7 +16,7 @@ const data = {
     id: '114_15a9LAUXCm9FkAVexH4q_453995',
     percentage: 21
   }
-}
+})
 
 const wrapper = mount(Card, {
   propsData: { data },
@@ -29,22 +30,22 @@ describe('Card Component', () => {
   })
 
   test('has enrollment', () => {
-    expect(vm.hasEnrollment).toBeTruthy()
+    expect(vm.data.hasEnrollment).toBeTruthy()
   })
 
   test('has dueDate', () => {
-    expect(vm.hasDueDate).toBeTruthy()
+    expect(vm.data.hasDueDate).toBeTruthy()
   })
 
   test('has variant and icon', () => {
-    expect(vm.statusClass).toStrictEqual({ icon: 'fa-tasks', variant: 'bg-warning' })
+    expect(vm.data.statusClass).toStrictEqual({ icon: 'fa-tasks', variant: 'bg-warning' })
   })
 
   test('has formatted available date icon', () => {
-    expect(vm.formatedAvailableAt).toStrictEqual('26/10')
+    expect(vm.data.formatedAvailableAt).toStrictEqual('26/10')
   })
 
   test('has default picture if doesnt have a thumb_url', () => {
-    expect(vm.picture).toStrictEqual('https://www.fillmurray.com/150/240')
+    expect(vm.data.picture).toStrictEqual('https://www.fillmurray.com/150/240')
   })
 })
