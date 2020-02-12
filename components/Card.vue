@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { DueDate, Enrollment, Status, StatusCard } from '~/store'
 
 export interface Card {
   id: string
@@ -32,27 +33,6 @@ export interface Card {
   due_date: DueDate | null
   status: string
   enrollment?: Enrollment
-}
-
-export interface DueDate {
-  available_at: number
-}
-
-export interface Enrollment {
-  id: string
-  percentage: number
-}
-
-export enum Status {
-  IN_PROGRESS = 'IN_PROGRESS',
-  NOT_STARTED = 'NOT_STARTED',
-  COMPLETED = 'COMPLETED',
-  BLOCKED = 'BLOCKED'
-}
-
-export interface StatusCard {
-  variant: String
-  icon: String
 }
 
 @Component({ name: 'VCard' })
@@ -114,7 +94,6 @@ export default class VCard extends Vue {
 </script>
 
 <style scoped>
-
   main{
     min-height: 150px;
     background-color: palevioletred;

@@ -13,7 +13,8 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
-import VCard, { Card } from '~/components/Card.vue'
+import VCard from '~/components/Card.vue'
+import { Card } from '~/store'
 
 @Component({ name: 'IndexPage', components: { VCard } })
 export default class IndexPage extends Vue {
