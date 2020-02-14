@@ -42,6 +42,6 @@ Endpoints:
 ### Dicas
 
 - Deve haver uma página para listagem e uma para detalhe
-- Faça o melhor layout que você puder
+- Faça o melhor layout que você puder (responsivo e interativo)
 - Desencorajamos o uso de frameworks de layout (bootstrap, vuetify, bulma, etc)
 - Caso tenha alguma dúvida, tome uma decisão e explique no PR
