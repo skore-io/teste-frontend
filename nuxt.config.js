@@ -28,11 +28,13 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios-accessor.ts'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxt/typescript-build'
   ],
   /*
   ** Nuxt.js modules
@@ -46,6 +48,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'https://us-central1-teste-frontend-c2dcc.cloudfunctions.net' || process.env.baseUrl
   },
   /*
   ** Build configuration
