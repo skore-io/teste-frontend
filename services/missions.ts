@@ -1,4 +1,4 @@
-import { $axios } from '~/utils/api'
+import { $axios } from '~/common/api'
 import { IMission } from '~/models/mission'
 
 export async function fetch(): Promise<IMission[]> {
