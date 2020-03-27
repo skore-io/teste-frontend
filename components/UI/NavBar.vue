@@ -12,7 +12,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/scss/_global.scss";
+@import "~/assets/scss/_global.scss";
+
 .global-header {
   background: rgba(255,255,255,0.3);
   background: linear-gradient(to right, #428a43, #253369);

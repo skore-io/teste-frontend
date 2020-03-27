@@ -6,9 +6,11 @@
 </template>
 
 <script>
+import Vue from "Vue";
 import NavBar from "~/components/UI/NavBar";
 
 export default {
+  el: "#app",
   components: {
     NavBar
   }
@@ -16,4 +18,6 @@ export default {
 </script>
 
 <style>
+@import "~/assets/scss/_global.scss";
+
 </style>

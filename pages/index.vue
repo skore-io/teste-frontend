@@ -1,5 +1,7 @@
 <template>
-  <ListMissions />
+  <div>
+    <ListMissions />
+  </div>
 </template>
 
 <script>
@@ -12,7 +14,7 @@ export default {
     ListMissions
   },
   head: {
-    title: 'Skore - Lista de missões',
+    title: "Skore - Lista de missões"
   }
 };
 </script>

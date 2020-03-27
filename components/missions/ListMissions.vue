@@ -1,38 +1,30 @@
 <template>
-  <div id="app">
-    <FilterMissions />
-    <ul class="card-list">
-      <li v-for="mission in missions" :key="mission.id" class="card-item">
-        <nuxt-link :to="{ name: 'missions-id', params: { id: mission.id }}">
-          <img :src="mission.thumb_url" class="thumb" />
-          <div class="card-content">
-            <div v-if="mission.status == 'BLOCKED'" class="status -blocked"></div>
-            <div v-if="mission.status == 'COMPLETED'" class="status -completed"></div>
-            <h2 class="title">{{mission.name}}</h2>
-            <div v-if="mission.status == 'NOT_STARTED'" class="btn-default">Iniciar</div>
-            <div v-else-if="mission.status == 'IN_PROGRESS'" class="btn-default">Continuar</div>
-            <div class="progress-bar" v-if="mission.enrollment">
-              <i>{{mission.enrollment.percentage}}% concluído</i>
-              <div class="progress" :style="'width:'+mission.enrollment.percentage+'%'">
-                <i>{{mission.enrollment.percentage}}% concluído</i>
-              </div>
+  <ul class="card-list">
+    <li v-for="mission in missions" :key="mission.id" class="card-item">
+      <nuxt-link :to="{ name: 'missions-id', params: { id: mission.id }}">
+        <img :src="mission.thumb_url" class="thumb" />
+        <div class="card-content">
+          <div v-if="mission.status == 'BLOCKED'" class="status -blocked"></div>
+          <div v-if="mission.status == 'COMPLETED'" class="status -completed"></div>
+          <h2 class="title">{{mission.name}}</h2>
+          <div v-if="mission.status == 'NOT_STARTED'" class="btn-default">Iniciar</div>
+          <div v-else-if="mission.status == 'IN_PROGRESS'" class="btn-default">Continuar</div>
+          <div class="progress-bar" v-if="mission.enrollment">
+            <i class="value">{{mission.enrollment.percentage}}% concluído</i>
+            <div class="progress" :style="'width:'+mission.enrollment.percentage+'%'">
+              <i class="value">{{mission.enrollment.percentage}}% concluído</i>
             </div>
           </div>
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+        </div>
+      </nuxt-link>
+    </li>
+  </ul>
 </template>
 
 <script>
 import axios from "axios";
-import FilterMissions from "./FilterMissions";
 
 export default {
-  components: {
-    FilterMissions
-  },
-
   data() {
     return {
       missions: []
@@ -54,11 +46,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~/assets/scss/_variables.scss";
+
 .card-list {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 20px auto 60px auto;
+  max-width: 1360px;
   > .card-item {
     position: relative;
     border-radius: 7px;
@@ -86,6 +81,11 @@ export default {
     transition: all 0.5s;
     width: 150px;
     height: 240px;
+  }
+  @media(max-width: $mobile) {
+     > .card-item {
+       width: 300px;
+     }
   }
 }
 .card-content {
@@ -117,6 +117,11 @@ export default {
     position: absolute;
     bottom: 10px;
     right: 10px;
+  }
+  @media(max-width: $mobile) {
+     > .title {
+       font-size: 18px;
+     }
   }
 }
 </style>
