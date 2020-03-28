@@ -1,3 +1,7 @@
+Teste realizado utilizando Vue.js com Nuxt.js, sass com rscss, e axios para consulta na API. A aplicação é toda responsiva.
+
+
+
 <h1 align="center">Teste Frontend</h1>
 <h5 align="center">Nosso teste para conhecer como você codifica no dia-dia</h5>
 
