@@ -25,8 +25,8 @@ export default {
 .image
   margin-top: -60px
   background-color: #2F2F33
-  width: 100px
-  height: 100px
+  width: 200px
+  height: 200px
   border-radius: 100%
 
   img
