@@ -3,6 +3,7 @@
     <v-picture :url="mission.thumb_url" />
     <h3>{{mission.name}}</h3>
     <v-status :status="mission.status" />
+    <v-due-date :due-date="mission.due_date" />
     <v-progress :progress="mission.enrollment" />
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 import vPicture from "./Picture.vue";
 import vStatus from "./Status";
+import vDueDate from "./DueDate";
 import vProgress from "./Progress.vue";
 
 export default {
@@ -21,6 +23,7 @@ export default {
   components: {
     vPicture,
     vStatus,
+    vDueDate,
     vProgress
   }
 };
