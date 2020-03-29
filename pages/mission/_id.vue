@@ -1,11 +1,14 @@
 <template>
-  <div>
-
-  </div>
+  <card-detail :mission="mission" />
 </template>
 
 <script>
+import CardDetail from "~/components/missions/Detail";
+
 export default {
+  components: {
+    CardDetail
+  },
   data() {
     return {
       mission: null
