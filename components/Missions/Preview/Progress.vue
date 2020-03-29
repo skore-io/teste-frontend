@@ -46,7 +46,12 @@ export default {
     width: 100%
     height: 6px
     border-radius: 0 0 50px 50px
+    animation: progressive 1s
 
   .uncompleted
     border-radius: 0 0 0 50px
+
+@keyframes progressive
+  from
+    width: 0
 </style>
