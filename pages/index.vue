@@ -15,6 +15,8 @@
 import vFilter from "~/components/Filter";
 import Card from "~/components/MissionCard/Main";
 
+import missionsHelper from "~/functions/missionsHelper";
+
 export default {
   data() {
     return {
@@ -32,7 +34,8 @@ export default {
         let missions = await fetch(
           "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
         );
-        this.missions = await missions.json();
+        missions = await missions.json();
+        this.missions = missionsHelper.sortByStatus(missions);
         await this.filterMissions();
       } catch (e) {
         alert(e);
@@ -42,7 +45,7 @@ export default {
       this.filteredMissions =
         status === "all"
           ? this.missions
-          : this.missions.filter(el => (el.status === status));
+          : this.missions.filter(el => el.status === status);
     }
   },
   mounted() {
