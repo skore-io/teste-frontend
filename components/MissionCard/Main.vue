@@ -1,4 +1,5 @@
 <template>
+  <n-link :to="`/mission/${mission.id}`">
     <div class="card">
       <v-picture :url="mission.thumb_url" />
       <h3>{{mission.name}}</h3>
@@ -6,6 +7,7 @@
       <v-due-date :due-date="mission.due_date" />
       <v-progress :status="mission.status" :progress="mission.enrollment || null" />
     </div>
+  </n-link>
 </template>
 
 <script>
@@ -50,6 +52,9 @@ export default {
     margin: 10px 0
     font-weight: 700
     font-size: 24px
+
+a
+  text-decoration: none
 
 @keyframes fade
   from
