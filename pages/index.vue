@@ -42,10 +42,10 @@ export default {
       }
     },
     filterMissions(status = "all") {
-      this.filteredMissions =
-        status === "all"
-          ? this.missions
-          : this.missions.filter(el => el.status === status);
+      this.filteredMissions = missionsHelper.filterByStatus(
+        this.missions,
+        status
+      );
     }
   },
   mounted() {
