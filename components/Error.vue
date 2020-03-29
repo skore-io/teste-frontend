@@ -10,16 +10,21 @@
 export default {
   data() {
     return {
-      seconds: 10
+      seconds: 10,
+      interval: null
     };
   },
   props: {
     message: String
   },
   mounted() {
-    setInterval(() => {
-      if (this.seconds > 0) this.seconds--;
-    }, 1000);
+    this.interval = setInterval(
+      () => (this.seconds ? this.seconds-- : clearInterval(this.interval)),
+      1000
+    );
+  },
+  destroyed() {
+    clearInterval(this.interval);
   },
   watch: {
     seconds() {
@@ -45,4 +50,7 @@ export default {
 
   p
     font-size: 20px
+
+  span
+    opacity: .6
 </style>
