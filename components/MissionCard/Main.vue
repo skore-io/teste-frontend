@@ -43,10 +43,6 @@ export default {
   &:hover
     transform: translateY(-5px)
 
-  img
-    margin-top: -60px
-    margin-bottom: 20px
-
   h3
     font-weight: 700
     font-size: 22px

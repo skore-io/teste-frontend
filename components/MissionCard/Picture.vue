@@ -1,5 +1,7 @@
 <template>
-  <img :src="url" alt />
+  <div class="image">
+    <img v-if="url" :src="url" alt />
+  </div>
 </template>
 
 <script>
@@ -7,7 +9,8 @@ export default {
   props: {
     url: {
       type: String,
-      required: true
+      required: false,
+      default: ""
     },
 
     alt: {
@@ -19,8 +22,18 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-img
+.image
+  margin-top: -60px
+  margin-bottom: 20px
+  background-color: #2F2F33
   width: 100px
   height: 100px
   border-radius: 100%
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+    border-radius: 100%
 </style>
