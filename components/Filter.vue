@@ -59,7 +59,7 @@ export default {
 
     label
       background: rgba(white, .07)
-      border-radius: 8px
+      border-radius: 30px
       opacity: .5
       padding: 10px 20px
       text-transform: capitalize
