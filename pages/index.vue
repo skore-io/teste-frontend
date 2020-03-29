@@ -1,7 +1,9 @@
 <template>
   <main>
-    <h1>Minhas missões</h1>
-    <v-filter @changed="getMissions" />
+    <header>
+      <h1>Minhas Missões</h1>
+      <v-filter @changed="getMissions" />
+    </header>
 
     <div class="cards">
       <card v-for="mission in missions" :key="mission.id" :mission="mission" />
@@ -51,10 +53,18 @@ main
   text-align: center
   color: white
 
-  h1
-    color: rgba(white, .4)
-    font-size: 50px
-    font-weight: 700
+  header
+    background: rgba(white, .01)
+    padding: 50px 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    h1
+      color: rgba(white, .4)
+      font-size: 50px
+      font-weight: 700
+      margin-top: 0
 
   .cards
     display: flex
