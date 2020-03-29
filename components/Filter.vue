@@ -1,7 +1,11 @@
 <template>
   <div class="filter">
+    <div class="group">
+      <input id="all" type="radio" name="filter" value="all" v-model="selectedStatus" />
+      <label for="all">Todos</label>
+    </div>
     <div class="group" v-for="status in statuses" :key="status">
-      <input :id="status" type="checkbox" name="filter" :value="status" v-model="selectedStatuses" />
+      <input :id="status" type="radio" name="filter" :value="status" v-model="selectedStatus" />
       <label :for="status">{{getStatusName(status)}}</label>
     </div>
   </div>
@@ -13,7 +17,7 @@ import statusHelper from "~/functions/statusHelper";
 export default {
   data() {
     return {
-      selectedStatuses: []
+      selectedStatus: "all"
     };
   },
   computed: {
@@ -30,12 +34,9 @@ export default {
     }
   },
   watch: {
-    selectedStatuses(statuses) {
-      this.$emit("changed", statuses);
+    selectedStatus(status) {
+      this.$emit("changed", status);
     }
-  },
-  mounted() {
-    this.selectedStatuses = this.statuses;
   }
 };
 </script>
