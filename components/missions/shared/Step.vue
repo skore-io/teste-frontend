@@ -3,7 +3,7 @@
     <div class="circle">{{ step.id }}</div>
     <div class="details">
       <h2>{{step.name}}</h2>
-      <v-status :status="step.status || 'NOT_STARTED'" />
+      <v-status type="step" :status="status" />
     </div>
   </div>
 </template>
@@ -13,10 +13,19 @@ import vStatus from "./Status";
 
 export default {
   props: {
-    step: Object
+    step: Object,
+    completedSteps: Array
   },
   components: {
     vStatus
+  },
+  computed: {
+    status() {
+      let completedStep = this.completedSteps.find(
+        el => el.step_id === this.step.id
+      );
+      return completedStep ? completedStep.status : "NOT_STARTED";
+    }
   }
 };
 </script>

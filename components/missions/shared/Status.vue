@@ -6,18 +6,26 @@
 </template>
 
 <script>
-import statusHelper from "~/functions/statusHelper";
+import missionsHelper from "~/functions/missionsHelper";
+import stepsHelper from "~/functions/stepsHelper";
 
 export default {
   props: {
-    status: String
+    status: String,
+    type: {
+      type: String,
+      default: "mission"
+    }
   },
   computed: {
+    helper() {
+      return this.type === "mission" ? missionsHelper : stepsHelper;
+    },
     color() {
-      return statusHelper.getColor(this.status);
+      return this.helper.getStatusColor(this.status);
     },
     name() {
-      return statusHelper.getName(this.status);
+      return this.helper.getStatusName(this.status);
     }
   }
 };

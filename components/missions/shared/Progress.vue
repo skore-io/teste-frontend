@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import statusHelper from "~/functions/statusHelper";
+import missionsHelper from "~/functions/missionsHelper";
 
 export default {
   props: {
@@ -25,7 +25,7 @@ export default {
       return this.progress && this.progress.percentage < 100;
     },
     color() {
-      return statusHelper.getColor(this.status);
+      return missionsHelper.getStatusColor(this.status);
     },
     percentage() {
       return this.progress ? this.progress.percentage : 0;

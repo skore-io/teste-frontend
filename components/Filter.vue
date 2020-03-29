@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import statusHelper from "~/functions/statusHelper";
+import missionsHelper from "~/functions/missionsHelper";
 
 export default {
   data() {
@@ -22,15 +22,12 @@ export default {
   },
   computed: {
     statuses() {
-      return statusHelper.getStatuses();
-    },
-    statusMap() {
-      return statusHelper.getStatusMap();
+      return missionsHelper.getStatuses();
     }
   },
   methods: {
     getStatusName(status) {
-      return statusHelper.getPluralName(status);
+      return missionsHelper.getStatusPluralName(status);
     }
   },
   watch: {
