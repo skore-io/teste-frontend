@@ -2,7 +2,7 @@
   <div class="filter">
     <div class="group">
       <input id="all" type="radio" name="filter" value="all" v-model="selectedStatus" />
-      <label for="all">Todos</label>
+      <label for="all">Todas</label>
     </div>
     <div class="group" v-for="status in statuses" :key="status">
       <input :id="status" type="radio" name="filter" :value="status" v-model="selectedStatus" />
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     getStatusName(status) {
-      return statusHelper.getName(status);
+      return statusHelper.getPluralName(status);
     }
   },
   watch: {
