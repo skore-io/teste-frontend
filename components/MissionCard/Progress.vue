@@ -4,7 +4,11 @@
       <b>Progresso:</b>
       {{percentage || 0}}%
     </span>
-    <div class="bar" :style="`width: ${percentage}%; background-color: ${color}`"></div>
+    <div
+      class="bar"
+      :class="{uncompleted: isUncompleted}"
+      :style="`width: ${percentage}%; background-color: ${color}`"
+    ></div>
   </div>
 </template>
 
@@ -17,6 +21,9 @@ export default {
     status: String
   },
   computed: {
+    isUncompleted() {
+      return this.progress && this.progress.percentage < 100;
+    },
     color() {
       return statusHelper.getColor(this.status);
     },
@@ -39,4 +46,7 @@ export default {
     width: 100%
     height: 6px
     border-radius: 0 0 50px 50px
+
+  .uncompleted
+    border-radius: 0 0 0 50px
 </style>
