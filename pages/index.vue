@@ -1,6 +1,7 @@
 <template>
   <main>
     <h1>Minhas missões</h1>
+    <v-filter @changed="getMissions" />
 
     <div class="cards">
       <card v-for="mission in missions" :key="mission.id" :mission="mission" />
@@ -9,7 +10,8 @@
 </template>
 
 <script>
-import Card from "~/components/MissionCard/Main.vue";
+import vFilter from "~/components/Filter";
+import Card from "~/components/MissionCard/Main";
 
 export default {
   data() {
@@ -18,15 +20,21 @@ export default {
     };
   },
   components: {
+    vFilter,
     Card
   },
   methods: {
-    async getMissions() {
+    async getMissions(statuses = null) {
       try {
         let missions = await fetch(
           "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
         );
         this.missions = await missions.json();
+
+        if (this.missions && statuses)
+          this.missions = this.missions.filter(el =>
+            statuses.includes(el.status)
+          );
       } catch (e) {
         alert(e);
       }

@@ -19,8 +19,10 @@ const STATUS_MAP = {
 
 const getColor = status => STATUS_MAP[status].color;
 const getName = status => STATUS_MAP[status].name;
+const getStatuses = () => Object.keys(STATUS_MAP);
 
 export default {
   getColor,
-  getName
+  getName,
+  getStatuses
 };
