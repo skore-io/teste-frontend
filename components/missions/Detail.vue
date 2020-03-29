@@ -8,7 +8,12 @@
       <h2>Etapas</h2>
 
       <div class="steps">
-        <v-step v-for="step in mission.steps" :key="step.id" :step="step" />
+        <v-step
+          v-for="step in mission.steps"
+          :key="step.id"
+          :step="step"
+          :completed-steps="completedSteps"
+        />
       </div>
 
       <v-due-date :due-date="mission.due_date" />
@@ -38,6 +43,13 @@ export default {
   },
   props: {
     mission: Object
+  },
+  computed: {
+    completedSteps() {
+      return this.mission.enrollment && this.mission.enrollment.completed_steps
+        ? this.mission.enrollment.completed_steps
+        : [];
+    }
   }
 };
 </script>
