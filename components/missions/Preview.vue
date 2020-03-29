@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import vPicture from "./Picture.vue";
-import vStatus from "./Status";
-import vDueDate from "./DueDate";
-import vProgress from "./Progress.vue";
+import vPicture from "./shared/Picture";
+import vStatus from "./shared/Status";
+import vDueDate from "./shared/DueDate";
+import vProgress from "./shared/Progress";
 
 export default {
   props: {

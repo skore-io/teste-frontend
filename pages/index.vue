@@ -5,15 +5,15 @@
       <v-filter @changed="filterMissions" />
     </header>
 
-    <div class="cards">
-      <card v-for="mission in filteredMissions" :key="mission.id" :mission="mission" />
+    <div class="content">
+      <preview-card v-for="mission in filteredMissions" :key="mission.id" :mission="mission" />
     </div>
   </main>
 </template>
 
 <script>
 import vFilter from "~/components/Filter";
-import Card from "~/components/Missions/Preview/Main";
+import PreviewCard from "~/components/missions/Preview";
 
 import missionsHelper from "~/functions/missionsHelper";
 
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     vFilter,
-    Card
+    PreviewCard
   },
   methods: {
     async getMissions() {
@@ -72,7 +72,7 @@ main
       font-weight: 700
       margin-top: 0
 
-  .cards
+  .content
     max-width: 880px
     display: flex
     flex-direction: row
