@@ -94,7 +94,7 @@ export default {
         height: 30px
 
   h1
-    padding: 0 20px
+    padding: 0 30px
     text-align: center
 
   .steps
