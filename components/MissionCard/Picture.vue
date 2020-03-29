@@ -24,7 +24,6 @@ export default {
 <style lang="sass" scoped>
 .image
   margin-top: -60px
-  margin-bottom: 20px
   background-color: #2F2F33
   width: 100px
   height: 100px

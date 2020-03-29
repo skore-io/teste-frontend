@@ -46,6 +46,7 @@ export default {
     transform: translateY(-5px)
 
   h3
+    margin: 10px 0
     font-weight: 700
     font-size: 24px
 </style>
