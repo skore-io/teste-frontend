@@ -28,14 +28,13 @@ export default {
 
 <style lang="sass" scoped>
 .card
-  width: 380px
-  background-color: rgba(white, .08)
+  width: 340px
+  background-color: rgba(white, .05)
   display: flex
   flex-direction: column
   align-items: center
-  min-width: 320pxa
   margin: 20px
-  padding: 20px 60px
+  padding: 20px 30px
   border-radius: 12px
   margin-top: 60px
   color: white
@@ -45,5 +44,5 @@ export default {
 
   h3
     font-weight: 700
-    font-size: 22px
+    font-size: 24px
 </style>

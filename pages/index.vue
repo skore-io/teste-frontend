@@ -47,7 +47,6 @@ main
     flex-direction: row
     flex-wrap: wrap
     justify-content: center
-    justify-self: center
     align-items: flex-start
     width: 980px
     margin: 0 auto
