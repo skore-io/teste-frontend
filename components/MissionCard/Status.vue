@@ -6,24 +6,7 @@
 </template>
 
 <script>
-const STATUS_MAP = {
-  COMPLETED: {
-    color: "#29ad5b",
-    name: "concluído"
-  },
-  IN_PROGRESS: {
-    color: "#1077f7",
-    name: "em andamento"
-  },
-  NOT_STARTED: {
-    color: "#343434",
-    name: "não iniciado"
-  },
-  BLOCKED: {
-    color: "#de1a1a",
-    name: "bloqueado"
-  }
-};
+import statusHelper from "~/functions/statusHelper";
 
 export default {
   props: {
@@ -31,10 +14,10 @@ export default {
   },
   computed: {
     color() {
-      return STATUS_MAP[this.status].color;
+      return statusHelper.getColor(this.status);
     },
     name() {
-      return STATUS_MAP[this.status].name;
+      return statusHelper.getName(this.status);
     }
   }
 };
