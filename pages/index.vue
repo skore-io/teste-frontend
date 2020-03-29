@@ -13,7 +13,7 @@
 
 <script>
 import vFilter from "~/components/Filter";
-import Card from "~/components/MissionCard/Main";
+import Card from "~/components/Missions/Preview/Main";
 
 import missionsHelper from "~/functions/missionsHelper";
 
