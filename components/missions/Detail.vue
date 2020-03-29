@@ -1,5 +1,5 @@
 <template>
-  <div v-if="mission">
+  <div v-if="mission" class="detail">
     <h1>{{mission.name}}</h1>
 
     <v-card>
@@ -11,7 +11,7 @@
         <v-step v-for="step in mission.steps" :key="step.id" :step="step" />
       </div>
 
-      <v-due-date :due-date="mission.due_date" horizontal />
+      <v-due-date :due-date="mission.due_date" />
       <v-status :status="mission.status" />
 
       <v-progress :status="mission.status" :progress="mission.enrollment || null" />
@@ -43,14 +43,24 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-h2
-  font-size: 30px
-  margin-top: 10px
-  margin-bottom: 0
+.detail
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-height: 100vh
 
-.status
-  margin-top: 20px
+  .steps
+    margin: 10px 0
+    width: 100%
+    padding: 0 30px
+    background-color: rgba(black, .15)
 
-.progress
-  margin-top: 0
+  h2
+    font-size: 30px
+    margin-top: 10px
+    margin-bottom: 0
+
+  .status
+    margin-top: 30px
 </style>

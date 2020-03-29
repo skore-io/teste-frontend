@@ -1,7 +1,7 @@
 <template>
   <div class="step">
     <div class="circle">{{ step.id }}</div>
-    <div>
+    <div class="details">
       <h2>{{step.name}}</h2>
       <v-status :status="step.status || 'NOT_STARTED'" />
     </div>
@@ -39,6 +39,13 @@ export default {
     font-weight: 700
     margin-right: 20px
 
-  h2
-    margin-bottom: 5px
+  .details
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    h2
+      font-size: 22px
+      margin-top: 0
+      margin-bottom: 5px
 </style>
