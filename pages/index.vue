@@ -70,6 +70,7 @@ main
       margin-top: 0
 
   .cards
+    max-width: 880px
     display: flex
     flex-direction: row
     flex-wrap: wrap
