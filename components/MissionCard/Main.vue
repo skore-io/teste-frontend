@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <v-picture :url="mission.thumb_url" />
-    <h3>{{mission.name}}</h3>
-    <v-status :status="mission.status" />
-    <v-due-date :due-date="mission.due_date" />
-    <v-progress :status="mission.status" :progress="mission.enrollment || null" />
-  </div>
+    <div class="card">
+      <v-picture :url="mission.thumb_url" />
+      <h3>{{mission.name}}</h3>
+      <v-status :status="mission.status" />
+      <v-due-date :due-date="mission.due_date" />
+      <v-progress :status="mission.status" :progress="mission.enrollment || null" />
+    </div>
 </template>
 
 <script>
@@ -41,6 +41,7 @@ export default {
   border-radius: 8px
   margin-top: 60px
   color: white
+  animation: fade .5s
 
   &:hover
     transform: translateY(-5px)
@@ -49,4 +50,11 @@ export default {
     margin: 10px 0
     font-weight: 700
     font-size: 24px
+
+@keyframes fade
+  from
+    margin-top: 0
+    opacity: 0
+  to
+    opacity: 1
 </style>
