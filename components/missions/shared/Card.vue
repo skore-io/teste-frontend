@@ -17,9 +17,10 @@
   margin-top: 60px
   color: white
   animation: fade .5s
+  transition: all .5s ease
 
   &:hover
-    transform: translateY(-5px)
+    transform: translateY(-10px)
 
   h3
     margin: 10px 0

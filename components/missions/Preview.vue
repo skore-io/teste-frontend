@@ -36,11 +36,4 @@ export default {
 <style lang="sass" scoped>
 a
   text-decoration: none
-
-@keyframes fade
-  from
-    margin-top: 0
-    opacity: 0
-  to
-    opacity: 1
 </style>
