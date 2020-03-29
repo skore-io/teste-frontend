@@ -28,14 +28,15 @@ export default {
 
 <style lang="sass" scoped>
 .card
+  width: 380px
   background-color: rgba(white, .08)
   display: flex
   flex-direction: column
   align-items: center
   min-width: 320pxa
-  margin: 5px
+  margin: 20px
   padding: 20px 60px
-  border-radius: 4px
+  border-radius: 12px
   margin-top: 60px
   color: white
 
