@@ -1,8 +1,10 @@
 <template>
-  <div class="due-date">
+  <div class="due-date" :class="{horizontal: horizontal}">
     <img src="/icons/deadline.svg" alt="validade" />
-    <b>Validade</b>
-    {{deadline}}
+    <div class="data">
+      <b>Validade</b>
+      {{deadline}}
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,11 @@ import dateHelper from "~/functions/dateHelper";
 
 export default {
   props: {
-    dueDate: Object
+    dueDate: Object,
+    horizontal: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     deadline() {
@@ -29,6 +35,17 @@ export default {
   flex-direction: column
   justify-content: center
   text-align: center
+
+  &.horizontal
+    flex-direction: row
+
+    .data
+      align-items: flex-start
+      margin-left: 10px
+
+  .data
+    display: flex
+    flex-direction: column
 
   img
     opacity: .4

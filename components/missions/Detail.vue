@@ -11,10 +11,8 @@
         <v-step v-for="step in mission.steps" :key="step.id" :step="step" />
       </div>
 
-      <div>
-        <v-status :status="mission.status" />
-        <v-due-date :due-date="mission.due_date" />
-      </div>
+      <v-due-date :due-date="mission.due_date" horizontal />
+      <v-status :status="mission.status" />
 
       <v-progress :status="mission.status" :progress="mission.enrollment || null" />
     </v-card>
@@ -45,4 +43,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+h2
+  font-size: 30px
+  margin-top: 10px
+  margin-bottom: 0
+
+.status
+  margin-top: 20px
+
+.progress
+  margin-top: 0
 </style>
