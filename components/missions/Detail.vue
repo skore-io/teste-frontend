@@ -1,5 +1,10 @@
 <template>
   <div v-if="mission" class="detail">
+    <n-link to="/">
+      <div class="back">
+        <img src="/icons/return.svg" alt="Voltar" title="Voltar" />
+      </div>
+    </n-link>
     <h1>{{mission.name}}</h1>
 
     <v-card>
@@ -61,6 +66,36 @@ export default {
   justify-content: center
   align-items: center
   min-height: 100vh
+
+  .back
+    display: flex
+    justify-content: center
+    align-items: center
+    position: fixed
+    right: 0
+    top: 0
+    width: 50px
+    height: 50px
+    background-color: rgba(white, .01)
+    border: 1px solid rgba(white, .05)
+    border-radius: 0 0 0 100%
+
+    @media (min-width: 768px)
+      width: 80px
+      height: 80px
+
+    img
+      margin-left: 10px
+      margin-bottom: 10px
+      height: 20px
+      opacity: .4
+
+      @media (min-width: 768px)
+        height: 30px
+
+  h1
+    padding: 0 20px
+    text-align: center
 
   .steps
     margin: 10px 0

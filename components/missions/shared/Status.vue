@@ -38,8 +38,12 @@ export default {
   text-transform: capitalize
 
   .circle
-    width: 20px
-    height: 20px
+    width: 15px
+    height: 15px
     border-radius: 100%
     margin-right: 5px
+
+    @media (min-width: 768px)
+      width: 20px
+      height: 20px
 </style>

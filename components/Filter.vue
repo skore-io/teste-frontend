@@ -41,11 +41,15 @@ export default {
 <style lang="sass" scoped>
 .filter
   display: flex
+  flex-wrap: wrap
   justify-content: center
-  margin: 10px 0
+  margin: 10px 0 0
 
   .group
-    margin: 0 10px
+    margin: 12px 5px
+
+    @media (min-width: 768px)
+      margin: 15px 10px
 
     input
       display: none
@@ -58,7 +62,12 @@ export default {
       background: rgba(white, .07)
       border-radius: 30px
       opacity: .5
+      font-size: 12px
       padding: 10px 20px
       text-transform: capitalize
       cursor: pointer
+
+      @media (min-width: 768px)
+        font-size: 16px
+        padding: 10px 20px
 </style>

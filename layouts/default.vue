@@ -10,6 +10,10 @@ body
   font-family: 'Source Sans Pro', sans-serif
   background-color: rgb(17, 17, 22)
   color: white
+  font-size: 14px
+
+  @media (min-width: 768px)
+    font-size: 16px
 
 @keyframes fade
   from

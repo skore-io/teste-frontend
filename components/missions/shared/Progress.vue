@@ -36,9 +36,12 @@ export default {
 
 <style lang="sass" scoped>
 .progress
-  width: calc(100% + 57px)
+  width: calc(100% + 39px)
   margin-top: 20px
   text-align: center
+
+  @media (min-width: 768px)
+    width: calc(100% + 57px)
 
   .bar
     margin-top: 10px

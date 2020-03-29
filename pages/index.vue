@@ -61,16 +61,25 @@ main
 
   header
     background: rgba(white, .01)
-    padding: 50px 0
+    padding: 20px 0
     display: flex
     flex-direction: column
     justify-content: center
+    margin-bottom: 30px
+
+    @media (min-width: 768px)
+      margin-bottom: 20px
+      padding: 50px 0
 
     h1
       color: rgba(white, .4)
-      font-size: 50px
+      font-size: 28px
       font-weight: 700
       margin-top: 0
+      margin-bottom: 0
+
+      @media (min-width: 768px)
+        font-size: 50px
 
   .content
     max-width: 880px
