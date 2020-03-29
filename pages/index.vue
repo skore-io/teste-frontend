@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div class="container">
-      <card v-for="mission in missions" :key="mission.id" :mission="mission" />
-    </div>
+    <card v-for="mission in missions" :key="mission.id" :mission="mission" />
   </main>
 </template>
 
@@ -38,16 +36,10 @@ export default {
 
 <style lang="sass" scoped>
 main
-  font-family: 'Source Sans Pro', sans-serif
-  background-color: rgb(17, 17, 22)
-  min-height: 100vh
-
-  .container
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: center
-    align-items: flex-start
-    width: 980px
-    margin: 0 auto
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: flex-start
+  margin: 0 auto
 </style>
