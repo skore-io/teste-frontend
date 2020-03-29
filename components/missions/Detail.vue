@@ -2,7 +2,7 @@
   <div v-if="mission">
     <h1>{{mission.name}}</h1>
 
-    <div class="card">
+    <v-card>
       <v-picture :url="mission.thumb_url" />
 
       <h2>Etapas</h2>
@@ -17,11 +17,12 @@
       </div>
 
       <v-progress :status="mission.status" :progress="mission.enrollment || null" />
-    </div>
+    </v-card>
   </div>
 </template>
 
 <script>
+import vCard from "./shared/Card";
 import vPicture from "./shared/Picture";
 import vStep from "./shared/Step";
 import vStatus from "./shared/Status";
@@ -30,6 +31,7 @@ import vDueDate from "./shared/DueDate";
 
 export default {
   components: {
+    vCard,
     vPicture,
     vStep,
     vStatus,
