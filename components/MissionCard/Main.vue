@@ -4,7 +4,7 @@
     <h3>{{mission.name}}</h3>
     <v-status :status="mission.status" />
     <v-due-date :due-date="mission.due_date" />
-    <v-progress :progress="mission.enrollment" />
+    <v-progress :status="mission.status" :progress="mission.enrollment || null" />
   </div>
 </template>
 
@@ -37,8 +37,8 @@ export default {
   flex-direction: column
   align-items: center
   margin: 20px
-  padding: 20px 30px
-  border-radius: 12px
+  padding: 20px 30px 0
+  border-radius: 8px
   margin-top: 60px
   color: white
 
