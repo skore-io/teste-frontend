@@ -6,7 +6,13 @@
     </header>
 
     <div class="content">
-      <preview-card v-for="mission in filteredMissions" :key="mission.id" :mission="mission" />
+      <img v-if="loading" src="/svg/loader.svg" height="50px" alt="carregando..." />
+      <preview-card
+        v-else
+        v-for="mission in filteredMissions"
+        :key="mission.id"
+        :mission="mission"
+      />
     </div>
   </main>
 </template>
@@ -21,7 +27,8 @@ export default {
   data() {
     return {
       missions: [],
-      filteredMissions: []
+      filteredMissions: [],
+      loading: false
     };
   },
   components: {
@@ -30,6 +37,8 @@ export default {
   },
   methods: {
     async getMissions() {
+      this.loading = true;
+
       try {
         let missions = await fetch(
           "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
@@ -38,8 +47,10 @@ export default {
         this.missions = missionsHelper.sortByStatus(missions);
         await this.filterMissions();
       } catch (e) {
-        alert(e);
+        console.log(e);
       }
+
+      this.loading = false;
     },
     filterMissions(status = "all") {
       this.filteredMissions = missionsHelper.filterByStatus(

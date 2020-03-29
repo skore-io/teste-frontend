@@ -1,5 +1,8 @@
 <template>
-  <card-detail :mission="mission" />
+  <div class="detail">
+    <img v-if="loading" src="/svg/loader.svg" height="50px" alt="carregando..." />
+    <card-detail v-else :mission="mission" />
+  </div>
 </template>
 
 <script>
@@ -11,6 +14,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       mission: null
     };
   },
@@ -21,6 +25,8 @@ export default {
   },
   methods: {
     async getMission() {
+      this.loading = true;
+
       try {
         let res = await fetch(
           `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/${this.id}`
@@ -31,6 +37,8 @@ export default {
       } catch (e) {
         console.log(e);
       }
+
+      this.loading = false;
     }
   },
   mounted() {
@@ -39,5 +47,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="sass" scoped>
+.detail
+  display: flex
+  justify-content: center
+  align-items: center
 </style>
