@@ -2,7 +2,7 @@
   <div v-if="mission" class="detail">
     <n-link to="/">
       <div class="back">
-        <img src="/icons/return.svg" alt="Voltar" title="Voltar" />
+        <img src="/svg/return.svg" alt="Voltar" title="Voltar" />
       </div>
     </n-link>
     <h1>{{mission.name}}</h1>

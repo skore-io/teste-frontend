@@ -1,6 +1,6 @@
 <template>
   <div class="due-date" :class="{horizontal: horizontal}">
-    <img src="/icons/deadline.svg" alt="validade" />
+    <img src="/svg/deadline.svg" alt="validade" />
     <div class="data">
       <b>Validade</b>
       {{deadline}}
