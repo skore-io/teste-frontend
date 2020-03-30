@@ -1,11 +1,11 @@
 <template>
   <div class="filter">
     <div class="group">
-      <input id="all" type="radio" name="filter" value="all" v-model="selectedStatus" />
+      <input id="all" type="radio" name="filter" value="all" v-model="filter" />
       <label for="all">Todas</label>
     </div>
     <div class="group" v-for="status in statuses" :key="status">
-      <input :id="status" type="radio" name="filter" :value="status" v-model="selectedStatus" />
+      <input :id="status" type="radio" name="filter" :value="status" v-model="filter" />
       <label :for="status">{{getStatusName(status)}}</label>
     </div>
   </div>
@@ -13,28 +13,33 @@
 
 <script>
 import missionsHelper from "~/functions/missionsHelper";
+import { mapMutations } from "vuex";
 
 export default {
-  data() {
-    return {
-      selectedStatus: "all"
-    };
-  },
   computed: {
+    filter: {
+      get() {
+        return this.$store.state.filter;
+      },
+      set(val) {
+        this.setFilter(val);
+      }
+    },
     statuses() {
       return missionsHelper.getStatuses();
     }
   },
   methods: {
+    ...mapMutations(["setFilter"]),
     getStatusName(status) {
       return missionsHelper.getStatusPluralName(status);
     }
   },
-  watch: {
-    selectedStatus(status) {
-      this.$emit("changed", status);
-    }
-  }
+  // watch: {
+  //   selectedStatus(status) {
+  //     this.setFilter(status);
+  //   }
+  // }
 };
 </script>
 

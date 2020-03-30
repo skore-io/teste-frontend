@@ -2,17 +2,12 @@
   <main>
     <header>
       <h1>Minhas Missões</h1>
-      <v-filter @changed="filterMissions" />
+      <v-filter />
     </header>
 
     <div class="content">
-      <img v-if="loading" src="/svg/loader.svg" height="50px" alt="carregando..." />
-      <preview-card
-        v-else
-        v-for="mission in filteredMissions"
-        :key="keygen(mission.id)"
-        :mission="mission"
-      />
+      <img v-if="loader" src="/svg/loader.svg" height="50px" alt="carregando..." />
+      <preview-card v-else v-for="mission in list" :key="keygen(mission.id)" :mission="mission" />
     </div>
   </main>
 </template>
@@ -21,49 +16,25 @@
 import vFilter from "~/components/Filter";
 import PreviewCard from "~/components/missions/Preview";
 
-import missionsHelper from "~/functions/missionsHelper";
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
-  data() {
-    return {
-      missions: [],
-      filteredMissions: [],
-      loading: false
-    };
-  },
   components: {
     vFilter,
     PreviewCard
   },
+  computed: {
+    ...mapState(["loader", "missions"]),
+    ...mapGetters(["list"])
+  },
   methods: {
+    ...mapActions(["fetchAll"]),
     keygen(id) {
       return id + Math.round(Math.random() * 10);
-    },
-    async getMissions() {
-      this.loading = true;
-
-      try {
-        let missions = await fetch(
-          "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
-        );
-        missions = await missions.json();
-        this.missions = missionsHelper.sortByStatus(missions);
-        await this.filterMissions();
-      } catch (e) {
-        console.log(e);
-      }
-
-      this.loading = false;
-    },
-    filterMissions(status = "all") {
-      this.filteredMissions = missionsHelper.filterByStatus(
-        this.missions,
-        status
-      );
     }
   },
   mounted() {
-    this.getMissions();
+    if (!this.missions || !this.missions.length) this.fetchAll();
   }
 };
 </script>
