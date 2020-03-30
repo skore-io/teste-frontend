@@ -9,7 +9,7 @@
 import Error from "~/components/Error";
 import Detail from "~/components/missions/Detail";
 
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   components: {
@@ -20,10 +20,14 @@ export default {
     ...mapState(["error"])
   },
   methods: {
-    ...mapActions(["getMission"])
+    ...mapActions(["getMission"]),
+    ...mapMutations(["setMission"])
   },
   mounted() {
     this.getMission(this.$route.params.id);
+  },
+  destroyed() {
+    this.setMission(null);
   }
 };
 </script>
