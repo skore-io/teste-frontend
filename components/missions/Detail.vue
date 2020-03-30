@@ -90,8 +90,11 @@ export default {
   .steps
     margin: 10px 0
     width: 100%
-    padding: 0 30px
+    padding: 0 20px
     background-color: rgba(black, .15)
+
+    @media (min-width: 768px)
+      padding: 0 30px
 
   h2
     font-size: 30px
