@@ -10,7 +10,7 @@
       <preview-card
         v-else
         v-for="mission in filteredMissions"
-        :key="mission.id"
+        :key="keygen(mission.id)"
         :mission="mission"
       />
     </div>
@@ -36,6 +36,9 @@ export default {
     PreviewCard
   },
   methods: {
+    keygen(id) {
+      return id + Math.round(Math.random() * 10);
+    },
     async getMissions() {
       this.loading = true;
 
