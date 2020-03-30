@@ -41,8 +41,8 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    width: 80px
-    height: 80px
+    min-width: 80px
+    min-height: 80px
     border-radius: 100%
     background: rgba(white, .03)
     border: 2px solid rgba(white, .06)
@@ -56,7 +56,10 @@ export default {
     justify-content: center
 
     h2
-      font-size: 22px
+      font-size: 20px
       margin-top: 0
       margin-bottom: 5px
+
+      @media (min-width: 768px)
+        font-size: 22px
 </style>
