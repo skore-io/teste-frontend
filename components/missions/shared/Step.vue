@@ -11,17 +11,19 @@
 <script>
 import vStatus from "./Status";
 
+import { mapGetters } from "vuex";
+
 export default {
   props: {
-    step: Object,
-    completedSteps: Array
+    step: Object
   },
   components: {
     vStatus
   },
   computed: {
+    ...mapGetters(["missionCompletedSteps"]),
     status() {
-      let completedStep = this.completedSteps.find(
+      let completedStep = this.missionCompletedSteps.find(
         el => el.step_id === this.step.id
       );
       return completedStep ? completedStep.status : "NOT_STARTED";

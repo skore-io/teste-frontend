@@ -11,6 +11,13 @@ export const getters = {
     return state.filter === "all"
       ? state.missions
       : state.missions.filter(el => el.status === state.filter);
+  },
+  missionCompletedSteps(state) {
+    return state.mission &&
+      state.mission.enrollment &&
+      state.mission.enrollment.completed_steps
+      ? state.mission.enrollment.completed_steps
+      : [];
   }
 };
 

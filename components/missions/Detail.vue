@@ -13,12 +13,7 @@
       <h2>Etapas</h2>
 
       <div class="steps">
-        <v-step
-          v-for="step in mission.steps"
-          :key="step.id"
-          :step="step"
-          :completed-steps="completedSteps"
-        />
+        <v-step v-for="step in mission.steps" :key="step.id" :step="step" />
       </div>
 
       <v-due-date :due-date="mission.due_date" />
@@ -37,6 +32,8 @@ import vStatus from "./shared/Status";
 import vProgress from "./shared/Progress";
 import vDueDate from "./shared/DueDate";
 
+import { mapState } from "vuex";
+
 export default {
   components: {
     vCard,
@@ -46,15 +43,8 @@ export default {
     vDueDate,
     vProgress
   },
-  props: {
-    mission: Object
-  },
   computed: {
-    completedSteps() {
-      return this.mission.enrollment && this.mission.enrollment.completed_steps
-        ? this.mission.enrollment.completed_steps
-        : [];
-    }
+    ...mapState(["mission"])
   }
 };
 </script>
