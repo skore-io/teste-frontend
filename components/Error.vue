@@ -1,12 +1,14 @@
 <template>
   <div class="error">
     <img src="/svg/cross.svg" alt="erro" />
-    <p>{{message}}</p>
+    <p>{{error}}</p>
     <span>Você será redirecionado em {{seconds}}s</span>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
@@ -14,8 +16,11 @@ export default {
       interval: null
     };
   },
-  props: {
-    message: String
+  computed: {
+    ...mapState(["error"])
+  },
+  methods: {
+    ...mapMutations(["setError"])
   },
   mounted() {
     this.interval = setInterval(
@@ -25,6 +30,7 @@ export default {
   },
   destroyed() {
     clearInterval(this.interval);
+    this.setError(null);
   },
   watch: {
     seconds() {

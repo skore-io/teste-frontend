@@ -31,7 +31,7 @@ export const actions = {
       let res = await this.$axios.$get(`/missions/${id}`);
       commit("setMission", res);
     } catch (e) {
-      e.status === 404
+      e.response.status === 404
         ? commit(
             "setError",
             "Ah não! Você não pode acessar essa missão ou ela não existe ;("
