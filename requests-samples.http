@@ -1,0 +1,5 @@
+### Get - List de Missões
+GET https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/
+
+### Get - Detalhes de Missões
+GET https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/15a9LAUXCm9FkAVexH4q

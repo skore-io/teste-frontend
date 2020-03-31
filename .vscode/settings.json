@@ -1,0 +1,10 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "vetur.experimental.templateInterpolationService": true,
+  "eslint.validate": [
+    "vue",
+    "typescript"
+  ]
+}
