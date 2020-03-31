@@ -11,6 +11,7 @@
           <small>({{mission.status}})</small>
         </h3>
         <img :src="mission.thumb_url" alt="Thumbnail da Mission" />
+        <nuxt-link :to="{ name: 'missions-id', params: { id: mission.id}}">Detalhar!</nuxt-link>
       </article>
     </div>
   </div>
