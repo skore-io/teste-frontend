@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-    <logo />
     <h1 class="title">
       Skore-IO: Teste Frontend
     </h1>
@@ -14,12 +13,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import Missions from '~/components/Missions.vue'
 
 export default {
   components: {
-    Logo,
     Missions
   }
 }
