@@ -35,9 +35,9 @@ Endpoints:
 
 ### Tarefas
 
-- [ ] Listar missões
-- [ ] Filtrar missões por status
-- [ ] Exibir detalhe da missão
+- [X] Listar missões
+- [X] Filtrar missões por status
+- [X] Exibir detalhe da missão
 
 ### Dicas
 
