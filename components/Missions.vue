@@ -4,8 +4,13 @@
     <p>
       <small>Clique em uma preview para exibir seus detalhes</small>
     </p>
+    <select name="filtro status" id="status-picker" v-model="filtroStatus">
+      <option value="">Escoha um Status</option>
+      <option v-for="status in statusPresentes" :value="status" :key="status">{{status}}</option>
+    </select>
+    <button @click="clearFiltro">Limpar Filtro</button>
     <div class="container-articles">
-      <mission-article v-for="preview in missionsPreview" :key="preview.name" :mission="preview"></mission-article>
+      <mission-article v-for="preview in missionsFiltradas" :key="preview.name" :mission="preview"></mission-article>
     </div>
   </div>
 </template>
@@ -15,14 +20,33 @@ import { mapActions, mapState } from "vuex";
 import MissionArticle from "~/components/MissionArticle.vue";
 
 export default {
+  data() {
+    return {
+      filtroStatus: ""
+    };
+  },
   components: {
     MissionArticle
   },
   computed: {
-    ...mapState(["missionsPreview"])
+    ...mapState(["missionsPreview"]),
+    statusPresentes() {
+      const statusArray = this.missionsPreview.map(m => m.status);
+      return [...new Set(statusArray)];
+    },
+    missionsFiltradas() {
+      if (this.filtroStatus) {
+        return this.missionsPreview.filter(m => m.status === this.filtroStatus);
+      }
+
+      return this.missionsPreview;
+    }
   },
   methods: {
-    ...mapActions(["fetchPreviews"])
+    ...mapActions(["fetchPreviews"]),
+    clearFiltro() {
+      this.filtroStatus = "";
+    }
   }
 };
 </script>
