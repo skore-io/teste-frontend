@@ -17,16 +17,25 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit }) {
-    const result = await this.$axios.$get(missionsEndpoint);
-    if (result) {
-      commit('setPreviews', result)
+    try {
+      const result = await this.$axios.$get(missionsEndpoint);
+      if (result) {
+        commit('setPreviews', result)
+      }
+    } catch (err) {
+      commit('setPreviews', [])
     }
   },
-  async fetchDetailed({commit}, missionId) {
+  async fetchDetailed({ commit }, missionId) {
     commit('setSelected', null)
-    const result = await this.$axios.$get(missionsEndpoint+missionId);
-    if (result) {
-      commit('setSelected', result)
+    try {
+      const result = await this.$axios.$get(missionsEndpoint + missionId);
+      if (result) {
+        commit('setSelected', result)
+      }
+    } catch (error) {
+      // TODO: Tratar corretamente o erro com base no status code
+      console.error(error)
     }
   }
 }
