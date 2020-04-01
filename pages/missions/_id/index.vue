@@ -17,6 +17,11 @@
               <li v-for="step in selectedMission.steps" :key="step.id">{{step.name}}</li>
             </ul>
           </article>
+          <article v-if="selectedMission.due_date">
+            <h4>Limite</h4>
+            <p>Esta mission possui um limite para ser feita</p>
+            <p>{{this.dueDate}}</p>
+          </article>
         </div>
         <div class="mission-body-container">
           <h4>Sua inscrição</h4>
@@ -70,6 +75,11 @@ export default {
     ...mapState(["selectedMission"]),
     enrollment() {
       return this.selectedMission.enrollment;
+    },
+    dueDate() {
+      if (this.selectedMission.due_date) {
+        return new Date(this.selectedMission.due_date.available_at).toLocaleDateString()
+      }
     }
   },
   async fetch({ store, params }) {
