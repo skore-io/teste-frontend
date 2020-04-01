@@ -5,15 +5,14 @@
       <small>Clique em uma preview para exibir seus detalhes</small>
     </p>
     <div class="container-articles">
-      <mission-article v-for="preview in missionsPreview" :key="preview.id" :mission="preview">
-      </mission-article>
+      <mission-article v-for="preview in missionsPreview" :key="preview.id" :mission="preview"></mission-article>
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
-import MissionArticle from '~/components/MissionArticle.vue'
+import MissionArticle from "~/components/MissionArticle.vue";
 
 export default {
   components: {
@@ -24,15 +23,11 @@ export default {
   },
   methods: {
     ...mapActions(["fetchPreviews"])
-  },
-  async mounted() {
-    await this.fetchPreviews();
   }
 };
 </script>
 
 <style scoped>
-
 .container-articles {
   display: grid;
   width: 100%;
