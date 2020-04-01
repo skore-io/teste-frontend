@@ -22,4 +22,12 @@ export default {
 
 <style>
 
+html{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main {
+  padding-top: 1rem;
+}
+
 </style>
