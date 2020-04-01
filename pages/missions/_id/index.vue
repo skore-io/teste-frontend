@@ -39,7 +39,17 @@
       </div>
     </template>
     <template v-else>
-      <p>Não foi possível localizar a mission {{this.id}}</p>
+      <div class="empty-message">
+        <p>
+          <em>Não foi possível localizar a mission {{this.id}}</em>
+        </p>
+        <p>
+          Volte à página inicial e tente novamente mais tarde
+        </p>
+        <p>
+          <nuxt-link :to="{ name: 'index'}">Voltar à Home</nuxt-link>
+        </p>
+      </div>
     </template>
   </section>
 </template>
@@ -114,5 +124,30 @@ img {
   display: flex;
   flex-direction: column;
   place-items: flex-start;
+}
+
+.empty-message {
+  height: 90vh;
+  width: 90vw;
+  place-items: center;
+}
+
+.empty-message > * {
+  margin-top: 2rem;
+}
+
+.empty-message > p {
+  text-align: center;
+}
+
+a {
+  border: 1px solid lightslategray;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 32px;
+  display: inline-block;
+  font-size: 16px;
 }
 </style>
