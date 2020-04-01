@@ -5,7 +5,7 @@
       <small>Clique em uma preview para exibir seus detalhes</small>
     </p>
     <div class="container-articles">
-      <mission-article v-for="preview in missionsPreview" :key="preview.id" :mission="preview"></mission-article>
+      <mission-article v-for="preview in missionsPreview" :key="preview.name" :mission="preview"></mission-article>
     </div>
   </div>
 </template>
