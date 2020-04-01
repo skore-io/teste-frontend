@@ -1,9 +1,7 @@
 <template>
   <nav>
     <p>
-      <strong>
-        Teste Frontend
-      </strong>
+      <img src="~/assets/skore-logo.png" alt="Logotipo da Skore.io">
     </p>
     <ul>
       <li>
@@ -25,6 +23,8 @@ nav {
   display: flex;
   flex-direction: row;
   border-bottom: 2px solid lightgrey;
+  height: 2rem;
+  align-items: center;
 }
 
 ul > li {
@@ -34,6 +34,10 @@ ul > li {
 ul > li > a {
   color: grey;
   text-decoration: none;
+}
+
+img {
+  height: 32px;
 }
 
 </style>
