@@ -5,22 +5,20 @@
       <small>Clique em uma preview para exibir seus detalhes</small>
     </p>
     <div class="container-articles">
-      <article v-for="mission in missionsPreview" :key="mission.id">
-        <h3>
-          {{mission.name}}
-          <small>({{mission.status}})</small>
-        </h3>
-        <img :src="mission.thumb_url" alt="Thumbnail da Mission" />
-        <nuxt-link :to="{ name: 'missions-id', params: { id: mission.id}}">Detalhar!</nuxt-link>
-      </article>
+      <mission-article v-for="preview in missionsPreview" :key="preview.id" :mission="preview">
+      </mission-article>
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
+import MissionArticle from '~/components/MissionArticle.vue'
 
 export default {
+  components: {
+    MissionArticle
+  },
   computed: {
     ...mapState(["missionsPreview"])
   },
@@ -34,8 +32,14 @@ export default {
 </script>
 
 <style scoped>
+
 .container-articles {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: flex-start;
+  justify-items: stretch;
+  padding: 0 1rem;
+  gap: 0.5rem;
 }
 </style>

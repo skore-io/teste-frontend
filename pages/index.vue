@@ -1,56 +1,42 @@
 <template>
   <div class="container">
-    <div>
-    <h1 class="title">
-      Skore-IO: Teste Frontend
-    </h1>
+    <section class="hero">
+      <h1>Skore-IO: Teste Frontend</h1>
+      <h2>Motivação</h2>
+      <p>A motivação para este website é demonstrar conhecimento e dia-a-dia na codificação de soluções para frontend</p>
+    </section>
+    <hr />
     <section>
       <h2>Missions</h2>
       <missions></missions>
     </section>
-    </div>
   </div>
 </template>
 
 <script>
-import Missions from '~/components/Missions.vue'
+import Missions from "~/components/Missions.vue";
 
 export default {
   components: {
     Missions
   }
-}
+};
 </script>
 
-<style>
+<style scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.hero {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  font-size: 1.5rem;
+}
+
+.hero > p {
   text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-section {
-  padding-top: 15px;
 }
 </style>
