@@ -16,13 +16,14 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchPreviews({ commit }) {
+  async nuxtServerInit({ commit }) {
     const result = await this.$axios.$get(missionsEndpoint);
     if (result) {
       commit('setPreviews', result)
     }
   },
   async fetchDetailed({commit}, missionId) {
+    commit('setSelected', null)
     const result = await this.$axios.$get(missionsEndpoint+missionId);
     if (result) {
       commit('setSelected', result)
