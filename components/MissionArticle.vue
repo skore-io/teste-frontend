@@ -1,8 +1,8 @@
 <template>
   <article v-if="mission" @click="pushDetailedMission(mission.id)">
     <h3>{{mission.name}}</h3>
-    <img :src="mission.thumb_url" alt="Thumbnail da Mission" />
-    <!-- <nuxt-link :to="{ name: 'missions-id', params: { id: mission.id}}">Detalhar!</nuxt-link> -->
+    <img :src="mission.thumb_url" alt="Thumbnail da Mission" v-if="mission.thumb_url"/>
+    <img src="~/assets/skore-logo.png" alt="Logotipo skore.io" v-else/>
   </article>
 </template>
 
@@ -34,5 +34,6 @@ article {
 
 img {
   height: 150px;
+  width: 150px;
 }
 </style>
