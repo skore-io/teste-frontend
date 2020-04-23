@@ -1,6 +1,10 @@
 <h1 align="center">Teste Frontend</h1>
 <h5 align="center">Nosso teste para conhecer como você codifica no dia-dia</h5>
 
+### Protótipo
+
+https://www.figma.com/proto/xMG9vJPZJcg9Zk0I56zvxq/Skore?node-id=1%3A2&viewport=911%2C638%2C0.25&scaling=min-zoom
+
 ### Tecnologias na Skore
 
 Nossa stack é a seguinte:
@@ -29,9 +33,9 @@ Ele também pode clicar em uma missão e ir para tela de detalhes.
 
 Endpoints:
 
-* Listagem de missões: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions`
+- Listagem de missões: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions`
 
-* Missão por id: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/{id}`
+- Missão por id: `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/{id}`
 
 ### Tarefas
 
