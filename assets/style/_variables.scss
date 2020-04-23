@@ -1,0 +1,13 @@
+@import "_colors.scss";
+
+$space: calc(15vw + 15vh);
+$p: calc((#{$space} / 60) + 10px);
+$area: 1200px;
+
+%font-family {
+  font-family: "Merriweather Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}

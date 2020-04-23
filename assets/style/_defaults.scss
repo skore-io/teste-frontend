@@ -1,0 +1,105 @@
+@import "_colors.scss";
+@import "_variables.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @extend %font-family;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+    color: $color_dark_hard;
+    outline: none;
+  }
+
+  & img,
+  button {
+    user-select: none;
+  }
+
+  & p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  input,
+  small,
+  ul,
+  li,
+  button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+  }
+
+  & li {
+    list-style: none;
+  }
+
+  & p {
+    font-size: $p;
+    line-height: 1.5em;
+  }
+  & h1 {
+    font-size: calc(#{$p} * 2);
+    line-height: 1.2em;
+  }
+  & h2 {
+    font-size: calc(#{$p} * 1.5);
+    line-height: 1.2em;
+  }
+  & h3 {
+    font-size: calc(#{$p} * 1.17);
+    line-height: 1.2em;
+  }
+  & h4 {
+    font-size: $p;
+    line-height: 1.2em;
+  }
+  & h5 {
+    font-size: calc(#{$p} * 0.83);
+    line-height: 1.2em;
+  }
+  & h5 {
+    font-size: calc(#{$p} * 0.67);
+    line-height: 1.2em;
+  }
+  & input {
+    font-size: $p;
+    -webkit-tap-highlight-color: transparent;
+    @extend %font-family;
+  }
+
+  & button,
+  a {
+    cursor: pointer;
+  }
+
+  & button {
+    @extend %font-family;
+    -webkit-tap-highlight-color: transparent;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // font-size: calc(#{$p} * 1.13);
+    // font-weight: 600;
+    // background: transparent;
+    // color: white;
+    // letter-spacing: 0.04em;
+    // transition: all 0.2s ease-in-out;
+  }
+}
+
+@media all and (min-width: 280px) and (max-width: 679px) and (orientation: portrait) {
+}
+@media all and (min-height: 280px) and (max-height: 679px) and (orientation: landscape) {
+}
