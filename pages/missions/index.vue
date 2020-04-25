@@ -1,16 +1,15 @@
 <template>
   <main class="Missions">
-    <div class="background_graphic">
-      <img src="~/assets/images/background_graphic.svg" />
-    </div>
+    <MainHeader />
+    <BackgroundGraphic />
 
     <section class="intro container">
       <div class="summary">
         <ul>
           <li>
-            <NLink to="/missions">skore</NLink>
+            <NLink to="/">skore</NLink>
           </li>
-          <span> / </span>
+          <span>/</span>
           <li>
             <NLink to="/missions">missões</NLink>
           </li>
@@ -26,29 +25,45 @@
         title="Suas missões"
         :active="activeFilterComp"
         @select="selectFilter"
-        :filters="[
-          'todas',
-          'em progresso',
-          'completas',
-          'não cadastradas',
-          'bloqueadas',
-          'vencidas'
-        ]"
+        :filters="filterItems"
       />
+      <transition-group tag="ul" class="list" name="cardAnimation">
+        <Card
+          v-for="(mission, indx) in missionsComp"
+          :key="`${indx}_${mission.id}`"
+          :style="`order: ${indx}`"
+          :name="mission.name"
+          :id="mission.id"
+          :company="mission.company_id"
+          :favorite="mission.priority"
+          :status="mission.status"
+          :thumb="mission.thumb_url"
+          :progress="mission.enrollment ? mission.enrollment.percentage : 0"
+        />
+      </transition-group>
     </section>
   </main>
 </template>
 
 <script>
+import axios from "axios";
+import { mapState, mapGetters } from "vuex";
+import BackgroundGraphic from "~/components/UI/BackgroundGraphic";
+import Card from "~/components/UI/Card";
+import MainHeader from "~/components/MainHeader/MainHeader";
 import SectionListFilter from "~/components/SectionListFilter/SectionListFilter";
+
 export default {
   components: {
+    BackgroundGraphic,
+    Card,
+    MainHeader,
     SectionListFilter
   },
 
   head() {
     return {
-      title: "Your missions",
+      title: "Missões",
       meta: [
         {
           hid: "description",
@@ -61,21 +76,58 @@ export default {
 
   data() {
     return {
-      activeFilter: "todas"
+      activeFilter: "todas",
+      filterItems: [
+        {
+          label: "em progresso",
+          value: "IN_PROGRESS"
+        },
+        {
+          label: "completadas",
+          value: "COMPLETED"
+        },
+        {
+          label: "não iniciadas",
+          value: "NOT_STARTED"
+        },
+        {
+          label: "bloqueadas",
+          value: "BLOCKED"
+        }
+      ]
     };
   },
 
   computed: {
+    ...mapState({ missions: "missions" }),
+    ...mapGetters({ missionsComp: "filteredMissions" }),
     activeFilterComp() {
       return this.activeFilter;
     }
   },
 
   methods: {
-    selectFilter(filter) {
-      this.activeFilter = filter;
+    selectFilter({ label, value }) {
+      this.activeFilter = label;
+      this.$store.commit("applyFilter", value);
+      console.log(label, value);
     }
   }
+
+  // async created() {
+  //   if (this.$store.state.missions.length == 0) {
+  //     try {
+  //       const res = await axios.get(
+  //         "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
+  //       );
+  //       this.$store.commit("setMissions", res.data);
+  //       console.log(res.data);
+  //       // console.log(this.$store);
+  //     } catch (err) {
+  //       console.log(`ERROR: ${err}`);
+  //     }
+  //   }
+  // }
 };
 </script>
 
@@ -83,22 +135,6 @@ export default {
 @import "@/assets/style/_colors.scss";
 @import "@/assets/style/_variables.scss";
 .Missions {
-  & .background_graphic {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100vw;
-    min-height: 550px;
-    user-select: none;
-
-    & img {
-      object-fit: cover;
-      min-height: 550px;
-      width: 100%;
-      height: 100%;
-    }
-  }
   & .intro {
     display: flex;
     justify-content: space-between;
@@ -112,6 +148,8 @@ export default {
         display: flex;
         align-items: center;
         padding: 0 0 2.5vh;
+        animation: 0.8s appear ease-out;
+        animation-iteration-count: 1;
 
         & * {
           color: $color_primary;
@@ -140,21 +178,155 @@ export default {
       & h1 {
         font-size: calc(#{$p} * 3);
         letter-spacing: -0.05em;
+        animation: 0.8s appear ease-out;
+        animation-iteration-count: 1;
       }
       & p {
         margin-top: 1.8vh;
         font-size: calc(#{$p} * 1.8);
         font-weight: 200;
         letter-spacing: -0.05em;
+        animation: 0.8s appear ease-out;
+        animation-iteration-count: 1;
       }
     }
     & img {
       flex: 55;
       min-width: 200px;
+      animation: 0.8s down-top ease-out;
+      animation-iteration-count: 1;
     }
   }
   & .mission-list {
-    margin-top: 10vh;
+    margin-top: 11vh;
+    animation: 0.8s appear ease-out;
+    animation-iteration-count: 1;
+    min-height: 80vh;
+
+    & .list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 8vh;
+
+      & .Card {
+        width: 30%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+      }
+
+      & .Card:nth-child(3n + 3) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.cardAnimation-enter-active {
+  transition: all 0.3s ease;
+}
+.cardAnimation-leave-active {
+  transition: all 0.6s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.cardAnimation-enter,
+.cardAnimation-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+@keyframes down-top {
+  0% {
+    margin-top: 15vh;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@media all and (min-width: 280px) and (max-width: 960px) and (orientation: portrait) {
+  .Missions {
+    & .intro {
+      flex-direction: column;
+
+      & .summary {
+        flex: unset;
+        margin-top: 0;
+
+        & * {
+          text-align: center;
+        }
+
+        & ul {
+          justify-content: center;
+          padding: 0 0 1.5vh;
+
+          & li {
+            padding: 0 2vw;
+          }
+        }
+        & p {
+          margin-top: 1.5vh;
+          font-size: calc(#{$p} * 1.6);
+        }
+      }
+      & img {
+        order: -1;
+        flex: unset;
+        min-width: unset;
+        width: 70%;
+        margin-bottom: 5vh;
+      }
+    }
+    & .mission-list {
+      margin-top: 10vh;
+      min-height: unset;
+      margin-bottom: 10vh;
+
+      & .list {
+        margin-top: 5vh;
+
+        & .Card {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 2vh;
+        }
+      }
+    }
+  }
+}
+@media all and (min-height: 280px) and (max-height: 640px) and (orientation: landscape) {
+  .Missions {
+    & .intro {
+      & .summary {
+        margin-top: 0;
+      }
+      & img {
+        max-height: 70vh;
+        margin-bottom: 5vh;
+      }
+    }
+    & .mission-list {
+      margin-top: 20vh;
+      min-height: unset;
+      margin-bottom: 20vh;
+
+      & .list {
+        margin-top: 10vh;
+
+        & .Card {
+          width: 48%;
+          margin-right: 4%;
+          margin-bottom: 4vh;
+        }
+        & .Card:nth-child(3n + 3) {
+          margin-right: 4%;
+        }
+        & .Card:nth-child(even) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 </style>

@@ -34,7 +34,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~/plugins/axios.js"],
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,5 +59,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  env: {
+    baseUrl: "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net"
+  },
+  transition: { name: "page", mode: "out-in" }
 };

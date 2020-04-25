@@ -1,25 +1,7 @@
 <template>
-  <div class="container">
+  <div class="home">
     <div>
       <logo />
-      <h1 class="title">
-        teste-frontend
-      </h1>
-      <h2 class="subtitle">
-        Teste frontend
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
   </div>
 </template>
@@ -30,8 +12,43 @@ import Logo from "~/components/Logo.vue";
 export default {
   components: {
     Logo
+  },
+
+  head() {
+    return {
+      title: process.env.npm_package_description,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Your missions"
+        }
+      ]
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$router.push({
+        path: "/missions"
+      });
+    }, 3000);
   }
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: -webkit-fill-available;
+
+  & .Logo {
+    width: 50vw;
+    animation: 2.9s appear-in-out ease-in-out;
+    animation-iteration-count: 1;
+    opacity: 0;
+  }
+}
+</style>
