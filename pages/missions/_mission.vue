@@ -1,70 +1,70 @@
 <template>
-  <main class="Mission" v-if="readyComp">
-    <MainHeader />
-    <BackgroundGraphic />
+  <main class="Mission">
+    <div v-if="!readyComp" class="loader">
+      <Logo />
+    </div>
 
-    <section class="intro container">
-      <div class="thumb">
-        <img class="lens" src="~/assets/images/thumb_lens.png" />
-        <img v-if="mission.thumb_url" :src="mission.thumb_url" :alt="mission.name" />
-        <img v-else src="~/assets/images/thumb_mission.jpg" :alt="mission.name" />
-      </div>
-      <div class="summary">
-        <ul>
-          <li>
-            <NLink to="/">skore</NLink>
-          </li>
-          <span>/</span>
-          <li>
-            <NLink to="/missions">missões</NLink>
-          </li>
-        </ul>
-        <h1>{{mission.name}}</h1>
-        <h4>Nome da Empresa</h4>
-        <p v-if="mission.due_date">
-          Encerra em:
-          {{
-          new Date(mission.due_date.available_at).toLocaleDateString("en-US", {dateStyle: "short",})
-          }}
-        </p>
-      </div>
-    </section>
+    <template v-else>
+      <MainHeader />
+      <BackgroundGraphic />
 
-    <section class="step-list container">
-      <SectionListFilter
-        title="Suas missões"
-        :active="activeFilterComp"
-        @select="selectFilter"
-        :filters="filterItems"
-      />
-      <transition-group tag="ul" class="list" name="cardAnimation">
-        <Progress
-          v-for="(step, indx) in mission.steps"
-          :key="step.id"
-          :style="`order: ${indx}`"
-          :name="step.name"
-          :progress="Math.random() * 100"
-        />
-      </transition-group>
-    </section>
+      <section class="intro container">
+        <div class="thumb">
+          <img class="lens" src="~/assets/images/thumb_lens.png" />
+          <img v-if="mission.thumb_url" :src="mission.thumb_url" :alt="mission.name" />
+          <img v-else src="~/assets/images/thumb_mission.jpg" :alt="mission.name" />
+        </div>
+        <div class="summary">
+          <ul>
+            <li>
+              <NLink to="/">skore</NLink>
+            </li>
+            <span>/</span>
+            <li>
+              <NLink to="/missions">missões</NLink>
+            </li>
+          </ul>
+          <h1>{{ mission.name }}</h1>
+          <h4>Nome da Empresa</h4>
+          <p v-if="mission.due_date">
+            Encerra em:
+            {{
+            new Date(
+            mission.due_date.available_at
+            ).toLocaleDateString("en-US", { dateStyle: "short" })
+            }}
+          </p>
+        </div>
+      </section>
+
+      <section class="step-list container">
+        <SectionListFilter title="Suas missões" :active="''" :filters="[]" />
+        <transition-group tag="ul" class="list" name="cardAnimation">
+          <Progress
+            v-for="(step, indx) in mission.steps"
+            :key="step.id"
+            :style="`order: ${indx}`"
+            :name="step.name"
+            :progress="Math.random() * 100"
+          />
+        </transition-group>
+      </section>
+    </template>
   </main>
 </template>
 
 <script>
-import axios from "~/plugins/axios";
 import { mapState } from "vuex";
 import BackgroundGraphic from "~/components/UI/BackgroundGraphic";
+import Logo from "~/components/Logo";
 import MainHeader from "~/components/MainHeader/MainHeader";
 import Progress from "~/components/UI/Progress";
 import SectionListFilter from "~/components/SectionListFilter/SectionListFilter";
 
 export default {
-  // async validate({ params, store }) {
-  //   return await store.state.missions.some(m => m.id === params.mission);
-  // },
-
   components: {
     BackgroundGraphic,
+    Logo,
     MainHeader,
     Progress,
     SectionListFilter
@@ -85,35 +85,51 @@ export default {
 
   data() {
     return {
-      activeFilter: "todas",
       ready: false,
-      filterItems: [
-        {
-          label: "em progresso",
-          value: "IN_PROGRESS"
-        },
-        {
-          label: "completadas",
-          value: "COMPLETED"
-        }
-      ]
+      erro: false
     };
   },
 
   computed: {
     ...mapState({ missions: "missions", mission: "selectedMission" }),
-    activeFilterComp() {
-      return this.activeFilter;
-    },
     readyComp() {
       return this.ready;
+    },
+    erroComp() {
+      return this.erro;
     }
   },
 
   methods: {
-    selectFilter({ label, value }) {
-      this.activeFilter = label;
-      this.$store.commit("applyFilter", value);
+    getMissions() {
+      this.$axios
+        .$get(
+          "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
+        )
+        .then(
+          res => (
+            this.$store.dispatch("loadMissions", {
+              data: res,
+              context: this
+            }),
+            this.checker()
+          )
+        );
+    },
+    getMission() {
+      this.$axios
+        .$get(
+          `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/${this.$route.params.mission}`
+        )
+        .then(
+          res => (
+            this.$store.dispatch("loadMission", {
+              data: res,
+              context: this
+            }),
+            (this.ready = true)
+          )
+        );
     },
     checker() {
       const validate = this.$store.state.missions.some(
@@ -121,18 +137,19 @@ export default {
       );
 
       if (validate) {
-        axios
-          .get(
+        this.$axios
+          .$get(
             `https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions/${this.$route.params.mission}`
           )
           .then(
             res => (
-              this.$store.commit("selectMission", res.data),
-              (this.ready = validate),
-              console.log(res.data)
+              this.$store.dispatch("loadMission", {
+                data: res,
+                context: this
+              }),
+              (this.ready = true)
             )
-          )
-          .catch(err => console.log(err));
+          );
       } else {
         this.$router.push({
           path: "/error"
@@ -142,14 +159,10 @@ export default {
   },
 
   async created() {
-    try {
-      const res = await axios.get(
-        "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
-      );
-      this.$store.commit("setMissions", res.data);
-      this.checker();
-    } catch (err) {
-      console.log(`ERROR: ${err}`);
+    if (this.$store.state.missions.length == 0) {
+      await this.getMissions();
+    } else {
+      await this.getMission();
     }
   }
 };
@@ -160,6 +173,21 @@ export default {
 @import "@/assets/style/_variables.scss";
 
 .Mission {
+  & .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & .Logo {
+      width: 20vw;
+      animation: loader 2s linear;
+      animation-iteration-count: infinite;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+  }
+
   & .intro {
     display: flex;
     justify-content: space-between;
@@ -292,6 +320,18 @@ export default {
   100% {
     margin-top: 0;
     opacity: 1;
+  }
+}
+
+@keyframes loader {
+  0% {
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
   }
 }
 

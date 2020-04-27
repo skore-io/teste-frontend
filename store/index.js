@@ -29,5 +29,8 @@ export const mutations = {
 export const actions = {
   loadMissions(storeContext, payload) {
     storeContext.commit("setMissions", payload.data);
+  },
+  loadMission(storeContext, payload) {
+    storeContext.commit("selectMission", payload.data);
   }
 };

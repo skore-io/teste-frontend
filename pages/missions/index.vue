@@ -27,7 +27,7 @@
         @select="selectFilter"
         :filters="filterItems"
       />
-      <transition-group tag="ul" class="list" name="cardAnimation">
+      <transition-group tag="ul" class="list" name="cardAnimation" v-if="missionsComp.length > 0">
         <Card
           v-for="(mission, indx) in missionsComp"
           :key="`${indx}_${mission.id}`"
@@ -41,12 +41,17 @@
           :progress="mission.enrollment ? mission.enrollment.percentage : 0"
         />
       </transition-group>
+      <ul v-else-if="missionsComp.length == 0" class="list">
+        <p class="not-found">Carregando missões...</p>
+      </ul>
+      <ul v-else class="list">
+        <p class="not-found">Nenhuma missão registrada...</p>
+      </ul>
     </section>
   </main>
 </template>
 
 <script>
-import axios from "axios";
 import { mapState, mapGetters } from "vuex";
 import BackgroundGraphic from "~/components/UI/BackgroundGraphic";
 import Card from "~/components/UI/Card";
@@ -110,24 +115,25 @@ export default {
     selectFilter({ label, value }) {
       this.activeFilter = label;
       this.$store.commit("applyFilter", value);
-      console.log(label, value);
-    }
-  }
+    },
 
-  // async created() {
-  //   if (this.$store.state.missions.length == 0) {
-  //     try {
-  //       const res = await axios.get(
-  //         "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
-  //       );
-  //       this.$store.commit("setMissions", res.data);
-  //       console.log(res.data);
-  //       // console.log(this.$store);
-  //     } catch (err) {
-  //       console.log(`ERROR: ${err}`);
-  //     }
-  //   }
-  // }
+    getMissions() {
+      this.$axios
+        .$get(
+          "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net/missions"
+        )
+        .then(res =>
+          this.$store.dispatch("loadMissions", {
+            data: res,
+            context: this
+          })
+        );
+    }
+  },
+
+  async created() {
+    await this.getMissions();
+  }
 };
 </script>
 
@@ -216,6 +222,13 @@ export default {
 
       & .Card:nth-child(3n + 3) {
         margin-right: 0;
+      }
+
+      & .not-found {
+        margin: 0 auto;
+        text-align: center;
+        color: $color_dark;
+        padding: 3vh 0;
       }
     }
   }

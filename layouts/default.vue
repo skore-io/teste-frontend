@@ -5,23 +5,7 @@
 </template>
 
 <script>
-import axios from "~/plugins/axios";
-
-export default {
-  async mounted() {
-    const vm = this.$store;
-    try {
-      const res = await axios.get("/");
-      // console.log(res);
-      vm.dispatch("loadMissions", {
-        data: res.data,
-        context: this
-      });
-    } catch (err) {
-      console.log(`ERROR: ${err}`);
-    }
-  }
-};
+export default {};
 </script>
 
 <style lang="scss">

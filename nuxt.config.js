@@ -1,8 +1,5 @@
 export default {
   mode: "universal",
-  /*
-   ** Headers of the page
-   */
   head: {
     title: process.env.npm_package_name || "",
     meta: [
@@ -23,45 +20,14 @@ export default {
       }
     ]
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: "#fff" },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ["~/plugins/axios.js"],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios"
-  ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+  plugins: ["~/plugins/axios"],
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net"
   },
-  env: {
-    baseUrl: "https://us-central1-teste-frontend-c2dcc.cloudfunctions.net"
+  build: {
+    extend(config, ctx) {}
   },
   transition: { name: "page", mode: "out-in" }
 };
