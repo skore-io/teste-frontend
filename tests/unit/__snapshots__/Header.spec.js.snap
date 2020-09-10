@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Renderização inicial e snapshot 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__props": Array [],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+      id="app"
+    >
+      <div
+        class="header"
+      >
+        <div
+          class="logo-wrapper"
+        >
+          <a
+            href="https://skore.io/pt"
+          >
+            <img
+              alt="Skore Logo"
+            />
+          </a>
+        </div>
+        <nav
+          class="navbar"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="Home Icon"
+            />
+          </a>
+          <a
+            href="#"
+          >
+            <img
+              alt="User Icon"
+            />
+          </a>
+          <div
+            id="toggleBtn"
+          >
+            <img
+              alt="DarkMode Icon"
+              src=""
+            />
+          </div>
+        </nav>
+      </div>
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {},
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.0-rc.6",
+  },
+  "__isFunctionalComponent": false,
+  "__setProps": [Function],
+  "componentVM": Object {
+    "__emitted": Object {},
+    "mode": "light",
+  },
+  "rootVM": Object {
+    "__emitted": Object {},
+  },
+}
+`;

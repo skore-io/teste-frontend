@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mission Renderização inicial e snapshot 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__props": Array [],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+      id="app"
+    >
+      
+      <div
+        class="container"
+      >
+        <div>
+          <div
+            class="header"
+          >
+            <div
+              class="logo-wrapper"
+            >
+              <a
+                href="https://skore.io/pt"
+              >
+                <img
+                  alt="Skore Logo"
+                />
+              </a>
+            </div>
+            <nav
+              class="navbar"
+            >
+              <a
+                href="/"
+              >
+                <img
+                  alt="Home Icon"
+                />
+              </a>
+              <a
+                href="#"
+              >
+                <img
+                  alt="User Icon"
+                />
+              </a>
+              <div
+                id="toggleBtn"
+              >
+                <img
+                  alt="DarkMode Icon"
+                  src=""
+                />
+              </div>
+            </nav>
+          </div>
+          <div
+            class="container"
+          >
+            <div
+              class="mission__header"
+            >
+              <div
+                class="mission__image"
+              >
+                <img
+                  alt="Rocket"
+                />
+              </div>
+              <div
+                class="mission__data"
+              >
+                <h1
+                  class="light"
+                >
+                  Desenvolvedor Backend
+                </h1>
+                <div
+                  class="mission__progress light"
+                >
+                  <h5
+                    class="mission__steps light"
+                  >
+                     Steps:  3
+                  </h5>
+                  <h5
+                    class="mission__concluded light"
+                  >
+                     Concluídos:  1
+                  </h5>
+                  <div
+                    class="mission__progress-bar"
+                  >
+                    <span
+                      class="mission__completed-bar light"
+                      style="--width: 33%;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="steps__background light"
+            >
+              
+              <div
+                class="step"
+              >
+                <span
+                  class="step__circle"
+                />
+                <div
+                  class="step__data"
+                >
+                  <h3
+                    class="step__count light"
+                  >
+                     Step:  1/3
+                  </h3>
+                  <div
+                    class="step__details light"
+                  >
+                    <img
+                      alt="Completa icon"
+                      class="step__icon"
+                      src=""
+                    />
+                    <div
+                      class="step__text"
+                    >
+                      <p
+                        class="step__title light"
+                      >
+                        Backend 101
+                      </p>
+                      <p
+                        class="step__status light"
+                      >
+                         Status:  
+                        <span
+                          class="green"
+                        >
+                          Completa
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      class="step__enter"
+                    >
+                      <img
+                        alt="Enter"
+                        class="enter__icon"
+                        src=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="step"
+              >
+                <span
+                  class="step__circle"
+                />
+                <div
+                  class="step__data"
+                >
+                  <h3
+                    class="step__count light"
+                  >
+                     Step:  2/3
+                  </h3>
+                  <div
+                    class="step__details light"
+                  >
+                    <img
+                      alt="Não Iniciada icon"
+                      class="step__icon"
+                      src=""
+                    />
+                    <div
+                      class="step__text"
+                    >
+                      <p
+                        class="step__title light"
+                      >
+                        Backend com Java
+                      </p>
+                      <p
+                        class="step__status light"
+                      >
+                         Status:  
+                        <span
+                          class="blue"
+                        >
+                          Não Iniciada
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      class="step__enter"
+                    >
+                      <img
+                        alt="Enter"
+                        class="enter__icon"
+                        src=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="step"
+              >
+                <span
+                  class="step__circle"
+                />
+                <div
+                  class="step__data"
+                >
+                  <h3
+                    class="step__count light"
+                  >
+                     Step:  3/3
+                  </h3>
+                  <div
+                    class="step__details light"
+                  >
+                    <img
+                      alt="Não Iniciada icon"
+                      class="step__icon"
+                      src=""
+                    />
+                    <div
+                      class="step__text"
+                    >
+                      <p
+                        class="step__title light"
+                      >
+                        Backend com Rails
+                      </p>
+                      <p
+                        class="step__status light"
+                      >
+                         Status:  
+                        <span
+                          class="blue"
+                        >
+                          Não Iniciada
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      class="step__enter"
+                    >
+                      <img
+                        alt="Enter"
+                        class="enter__icon"
+                        src=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="step"
+              >
+                <span
+                  class="step__circle"
+                />
+                <div
+                  class="step__data"
+                >
+                  <h3
+                    class="step__count light"
+                  >
+                     Step:  4/3
+                  </h3>
+                  <div
+                    class="step__details light"
+                  >
+                    <img
+                      alt="Não Iniciada icon"
+                      class="step__icon"
+                      src=""
+                    />
+                    <div
+                      class="step__text"
+                    >
+                      <p
+                        class="step__title light"
+                      />
+                      <p
+                        class="step__status light"
+                      >
+                         Status:  
+                        <span
+                          class="blue"
+                        >
+                          Não Iniciada
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      class="step__enter"
+                    >
+                      <img
+                        alt="Enter"
+                        class="enter__icon"
+                        src=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <router-view />
+      
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {},
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.0-rc.6",
+  },
+  "__isFunctionalComponent": false,
+  "__setProps": [Function],
+  "componentVM": Object {
+    "__emitted": Object {},
+    "id": "",
+    "loading": false,
+    "missionDetails": Object {
+      "company_id": "114",
+      "due_date": Object {
+        "available_at": 1572127435329,
+      },
+      "enrollment": Object {
+        "completed_steps": Array [
+          Object {
+            "status": "COMPLETED",
+            "step_id": 1,
+          },
+        ],
+        "id": "114_15a9LAUXCm9FkAVexH4q_453995",
+        "percentage": 33,
+      },
+      "id": "15a9LAUXCm9FkAVexH4q",
+      "name": "Desenvolvedor Backend",
+      "priority": 1,
+      "status": "IN_PROGRESS",
+      "steps": Array [
+        Object {
+          "id": 1,
+          "name": "Backend 101",
+        },
+        Object {
+          "id": 2,
+          "name": "Backend com Java",
+        },
+        Object {
+          "id": 3,
+          "name": "Backend com Rails",
+        },
+      ],
+      "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+    },
+    "mode": "light",
+    "toggleTheme": [Function],
+  },
+  "rootVM": Object {
+    "__emitted": Object {},
+  },
+}
+`;

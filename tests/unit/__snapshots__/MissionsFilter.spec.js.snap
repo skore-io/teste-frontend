@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MissionsFilter Renderização inicial e snapshot 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__props": Array [],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+      id="app"
+    >
+      
+      <h1
+        class="light"
+        id="missions"
+      >
+         MISSÕES 
+      </h1>
+      <div
+        class="filter-wrapper light"
+      >
+        <input
+          id="todas"
+          name="Filter"
+          type="radio"
+          value="ALL"
+        />
+        <p>
+          <label
+            for="todas"
+          >
+            Todas
+          </label>
+        </p>
+        <input
+          id="em-andamento"
+          name="Filter"
+          type="radio"
+          value="IN_PROGRESS"
+        />
+        <p>
+          <label
+            for="em-andamento"
+          >
+            Em Andamento
+          </label>
+        </p>
+        <input
+          id="completa"
+          name="Filter"
+          type="radio"
+          value="COMPLETED"
+        />
+        <p>
+          <label
+            for="completa"
+          >
+            Completa
+          </label>
+        </p>
+        <input
+          id="nao-iniciada"
+          name="Filter"
+          type="radio"
+          value="NOT_STARTED"
+        />
+        <p>
+          <label
+            for="nao-iniciada"
+          >
+            Não Iniciada
+          </label>
+        </p>
+        <input
+          id="bloqueada"
+          name="Filter"
+          type="radio"
+          value="BLOCKED"
+        />
+        <p>
+          <label
+            for="bloqueada"
+          >
+            Bloqueada
+          </label>
+        </p>
+      </div>
+      <div
+        class="list-wrapper"
+      >
+        
+        
+      </div>
+      
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {},
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.0-rc.6",
+  },
+  "__isFunctionalComponent": false,
+  "__setProps": [Function],
+  "componentVM": Object {
+    "__emitted": Object {},
+    "filteredMissions": Array [],
+    "missions": Array [],
+    "mode": "light",
+    "selectedStatus": "ALL",
+  },
+  "rootVM": Object {
+    "__emitted": Object {},
+  },
+}
+`;

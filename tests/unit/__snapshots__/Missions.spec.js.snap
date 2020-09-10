@@ -1,0 +1,854 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Missions Renderização inicial e snapshot 1`] = `
+VueWrapper {
+  "__app": Object {
+    "_component": Object {
+      "__props": Array [],
+      "name": "VTU_ROOT",
+      "render": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+      id="app"
+    >
+      
+      <div
+        class="container"
+      >
+        <div>
+          <div
+            class="header"
+          >
+            <div
+              class="logo-wrapper"
+            >
+              <a
+                href="https://skore.io/pt"
+              >
+                <img
+                  alt="Skore Logo"
+                />
+              </a>
+            </div>
+            <nav
+              class="navbar"
+            >
+              <a
+                href="/"
+              >
+                <img
+                  alt="Home Icon"
+                />
+              </a>
+              <a
+                href="#"
+              >
+                <img
+                  alt="User Icon"
+                />
+              </a>
+              <div
+                id="toggleBtn"
+              >
+                <img
+                  alt="DarkMode Icon"
+                  src=""
+                />
+              </div>
+            </nav>
+          </div>
+          
+          <h1
+            class="light"
+            id="missions"
+          >
+             MISSÕES 
+          </h1>
+          <div
+            class="filter-wrapper light"
+          >
+            <input
+              id="todas"
+              name="Filter"
+              type="radio"
+              value="ALL"
+            />
+            <p>
+              <label
+                for="todas"
+              >
+                Todas
+              </label>
+            </p>
+            <input
+              id="em-andamento"
+              name="Filter"
+              type="radio"
+              value="IN_PROGRESS"
+            />
+            <p>
+              <label
+                for="em-andamento"
+              >
+                Em Andamento
+              </label>
+            </p>
+            <input
+              id="completa"
+              name="Filter"
+              type="radio"
+              value="COMPLETED"
+            />
+            <p>
+              <label
+                for="completa"
+              >
+                Completa
+              </label>
+            </p>
+            <input
+              id="nao-iniciada"
+              name="Filter"
+              type="radio"
+              value="NOT_STARTED"
+            />
+            <p>
+              <label
+                for="nao-iniciada"
+              >
+                Não Iniciada
+              </label>
+            </p>
+            <input
+              id="bloqueada"
+              name="Filter"
+              type="radio"
+              value="BLOCKED"
+            />
+            <p>
+              <label
+                for="bloqueada"
+              >
+                Bloqueada
+              </label>
+            </p>
+          </div>
+          <div
+            class="list-wrapper"
+          >
+            
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="no-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status em-andamento light"
+                  >
+                    Em Andamento
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src="https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png"
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Desenvolvedor Backend
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: 21%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="no-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status nao-iniciado light"
+                  >
+                    Não Iniciada
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src="https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png"
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Desenvolvedor Frontend
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: undefined%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="no-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status em-andamento light"
+                  >
+                    Em Andamento
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src="https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png"
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Desenvolvedor iOS
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: 63%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="completed-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status completa light"
+                  >
+                    Completa
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src=""
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Desenvolvedor Android
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: 100%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="no-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status nao-iniciado light"
+                  >
+                    Não Iniciada
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src="https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png"
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Desenvolvedor Flutter
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: undefined%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mission-template light"
+              >
+                <div
+                  class="blocked-overlay"
+                />
+                <div
+                  class="tags"
+                >
+                  <span
+                    class="status bloqueada light"
+                  >
+                    Bloqueada
+                  </span>
+                  <div
+                    class="priority light"
+                  >
+                     Prioridade 
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="red-circle"
+                      />
+                    </div>
+                    
+                    
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    <div
+                      class="priority-circle"
+                    >
+                      <span
+                        class="white-circle"
+                      />
+                    </div>
+                    
+                  </div>
+                </div>
+                <div
+                  class="image-wrapper"
+                >
+                  <img
+                    alt=""
+                    src="https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png"
+                  />
+                </div>
+                <div
+                  class="info-wrapper"
+                >
+                  <h1
+                    class="light"
+                  >
+                    Site Reliability Engineer
+                  </h1>
+                  <div
+                    class="meter"
+                  >
+                    <span
+                      class="bar light"
+                      style="--width: undefined%;"
+                    />
+                  </div>
+                  <div
+                    class="btn"
+                  >
+                    <router-link
+                      to="[object Object]"
+                    >
+                       ACESSAR 
+                    </router-link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+      <router-view />
+      
+    </div>,
+    "_context": Object {
+      "app": [Circular],
+      "components": Object {},
+      "config": Object {
+        "errorHandler": undefined,
+        "globalProperties": Object {},
+        "isCustomElement": [Function],
+        "isNativeTag": [Function],
+        "optionMergeStrategies": Object {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": Object {},
+      "mixins": Array [
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+        Object {
+          "__props": Array [],
+          "beforeCreate": [Function],
+        },
+      ],
+      "provides": Object {},
+      "reload": [Function],
+    },
+    "_props": null,
+    "component": [Function],
+    "config": Object {
+      "errorHandler": undefined,
+      "globalProperties": Object {},
+      "isCustomElement": [Function],
+      "isNativeTag": [Function],
+      "optionMergeStrategies": Object {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.0.0-rc.6",
+  },
+  "__isFunctionalComponent": false,
+  "__setProps": [Function],
+  "componentVM": Object {
+    "__emitted": Object {},
+    "loading": false,
+    "missions": Array [
+      Object {
+        "company_id": "114",
+        "due_date": Object {
+          "available_at": 1572127435329,
+        },
+        "enrollment": Object {
+          "id": "114_15a9LAUXCm9FkAVexH4q_453995",
+          "percentage": 21,
+        },
+        "id": "15a9LAUXCm9FkAVexH4q",
+        "name": "Desenvolvedor Backend",
+        "priority": 1,
+        "status": "IN_PROGRESS",
+        "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+      },
+      Object {
+        "company_id": "114",
+        "due_date": Object {
+          "available_at": 1577460755435,
+        },
+        "id": "OgYPcZXbYgHQCFCS3b8a",
+        "name": "Desenvolvedor Frontend",
+        "priority": 1,
+        "status": "NOT_STARTED",
+        "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+      },
+      Object {
+        "company_id": "114",
+        "due_date": null,
+        "enrollment": Object {
+          "id": "114_0DynFIwidEoqpJxbpmQK_453995",
+          "percentage": 63,
+        },
+        "id": "0DynFIwidEoqpJxbpmQK",
+        "name": "Desenvolvedor iOS",
+        "priority": 1,
+        "status": "IN_PROGRESS",
+        "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+      },
+      Object {
+        "company_id": "114",
+        "due_date": null,
+        "enrollment": Object {
+          "id": "114_15a9LAUXCm9FkAVexH4q_453995",
+          "percentage": 100,
+        },
+        "id": "15a9LAUXCm9FkAVexH4q",
+        "name": "Desenvolvedor Android",
+        "priority": 1,
+        "status": "COMPLETED",
+        "thumb_url": null,
+      },
+      Object {
+        "company_id": "114",
+        "due_date": null,
+        "id": "Jx0TJYrLFhYOeIc4boBL",
+        "name": "Desenvolvedor Flutter",
+        "priority": 1,
+        "status": "NOT_STARTED",
+        "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+      },
+      Object {
+        "company_id": "114",
+        "due_date": null,
+        "id": "9LMvnEZFlnmwoIjCNqHL",
+        "name": "Site Reliability Engineer",
+        "priority": 1,
+        "status": "BLOCKED",
+        "thumb_url": "https://img.skore.io/image/upload/v1566918438/retool/c6mjszo.png",
+      },
+    ],
+    "mode": "light",
+    "toggleTheme": [Function],
+  },
+  "rootVM": Object {
+    "__emitted": Object {},
+  },
+}
+`;
