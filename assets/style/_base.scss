@@ -1,0 +1,84 @@
+@import "_variables.scss";
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  @extend %font-family;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  & * {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    color: $color_dark;
+    outline: none;
+  }
+
+  & img,
+  button {
+    user-select: none;
+  }
+
+  & p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  input,
+  small,
+  ul,
+  li,
+  button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+  }
+  & li {
+    list-style: none;
+  }
+  & p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  & h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  & h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  & h3 {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+  & input {
+    @extend %font-family;
+    font-size: 1rem;
+  }
+
+  & button,
+  a {
+    cursor: pointer;
+  }
+
+  & button {
+    @extend %font-family;
+  }
+}
+
+::-webkit-scrollbar * {
+  width: 0;
+  height: 0;
+  border: 0;
+  background-color: transparent !important;
+  display: none;
+}

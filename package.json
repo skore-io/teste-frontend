@@ -27,6 +27,9 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
+    "sass-resources-loader": "^2.1.1",
     "vue-jest": "^4.0.0-0"
   }
 }
