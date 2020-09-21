@@ -10,5 +10,7 @@
   .app-container {
     padding: 1rem 1.5rem;
     min-height: 100vh;
+    max-width: 80rem;
+    margin: auto;
   }
 </style>

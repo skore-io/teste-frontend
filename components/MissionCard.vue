@@ -4,9 +4,8 @@
             <img class="mission-card__image" :src="image || standardImage"/>
             <h3 class="mission-card__name">{{name}}</h3>
             <div class="mission-card__description">{{progress}}%</div>
-            <div 
-                class="mission-card__progress-bar"
-                :style="{ width: progress+'%' }">
+            <div class="mission-card__progress-bar">
+                <div :style="{ width: progress+'%' }"></div>
             </div>
         </div>
     </NLink>
@@ -59,8 +58,16 @@
         &__progress-bar {
             grid-area: progress-bar;
             height: .5rem;
-            width: 0%;
-            background-image: linear-gradient(to right, $color_sucess_dark, $color_success);
+            border-radius: .5rem;
+            width: 100%;
+            box-shadow: inset 0 0 .5rem $color_light_hard;
+
+            div {
+                height: .5rem;
+                border-radius: .5rem;
+                width: 0%;
+                background-image: linear-gradient(to right, $color_sucess_dark, $color_success);
+            }
         }
     }
 </style>

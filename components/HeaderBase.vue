@@ -1,7 +1,10 @@
 <template>
 
     <div class="header-base">
-        <div class="header-base__menu">
+        <NLink :to="`/missions`" v-if="backButton">
+            <div class="header-base__back-button" ></div>
+        </NLink>
+        <div class="header-base__menu" v-else>
             <div class="bar1"></div>
             <div class="bar2"></div>
         </div>
@@ -12,7 +15,7 @@
 
 <script>
     export default {
-        name: "HeaderBase"
+        props: ['backButton']
     }
 </script>
 
@@ -43,6 +46,14 @@
                 height: .25rem;
                 background-color: $color_dark;
             }
+        }
+
+        &__back-button { 
+            border: solid black;
+            border-width: 0 0.25rem 0.25rem 0;
+            display: inline-block;
+            padding: 0.375rem;
+            transform: rotate(135deg);
         }
 
         &__avatar {

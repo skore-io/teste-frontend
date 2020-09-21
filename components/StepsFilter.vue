@@ -54,6 +54,8 @@
             border-radius: 3rem;
             padding: 0 1.5rem;
             white-space: nowrap;
+            font-weight: 700;
+            cursor: pointer;
 
             &--selected {
                 background-color: $color_primary;

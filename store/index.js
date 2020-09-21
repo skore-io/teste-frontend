@@ -1,7 +1,7 @@
 export const state = () => ({
   missions: [],
   filterKey: "",
-  selectedMission: null
+  selectedMission: {}
 });
 
 export const getters = {
@@ -14,6 +14,9 @@ export const getters = {
   },
   filterKey(state) {
     return state.filterKey;
+  },
+  selectedMission(state) {
+    return state.selectedMission;
   }
 };
 
