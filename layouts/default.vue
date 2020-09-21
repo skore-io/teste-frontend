@@ -1,10 +1,14 @@
 <template>
-  <div class="app">
+  <div class="app-container">
     <nuxt />
   </div>
 </template>
 
-<style>
+<style lang="scss">
+  @import "@/assets/style/_variables.scss";
 
-
+  .app-container {
+    padding: 1rem 1.5rem;
+    min-height: 100vh;
+  }
 </style>

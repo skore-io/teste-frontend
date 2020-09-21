@@ -1,17 +1,9 @@
-<template>
-  <logo />
-</template>
-
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  mounted() {
+    this.$router.push({
+      path: "/missions"
+    });
   }
-}
+};
 </script>
-
-<style>
-
-</style>
