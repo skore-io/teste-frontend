@@ -21,6 +21,14 @@ html {
   box-sizing: border-box;
 }
 
+a {
+  color: #3aaf9f;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .container {
   max-width: 100%;
   width: 1300px;

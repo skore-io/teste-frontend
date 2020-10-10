@@ -70,8 +70,6 @@ export default {
         }
       });
 
-      console.log(filteredMissions);
-
       return filteredMissions;
     },
 
@@ -132,14 +130,5 @@ export default {
   padding-top: 15px;
 
   font-weight: 300;
-  font-size: 14px;
-}
-
-.missions .missions-list > .mission-item > a {
-  text-decoration: none;
-}
-
-.missions .missions-list > .mission-item > a:hover {
-  text-decoration: underline;
 }
 </style>
