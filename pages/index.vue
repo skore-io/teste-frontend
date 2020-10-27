@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
     <div>
       <h1 class="title">
         Missões
       </h1>
-      <Missions></Missions>
+    <div class="container">
+      <Missions />
     </div>
   </div>
 </template>
@@ -29,6 +29,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100vw;
 }
 
 .title {
@@ -37,6 +38,7 @@ export default {
   display: block;
   font-weight: 300;
   font-size: 100px;
+  text-align: center;
   color: #35495e;
   letter-spacing: 1px;
 }
