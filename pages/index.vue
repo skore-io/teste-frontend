@@ -1,72 +1,102 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        teste-frontend
-      </h1>
-      <h2 class="subtitle">
-        Teste frontend
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="main_page">
+    <div class="row">
+      <div class="row__inner">
+        <CardCourse
+          v-for="(course, index) in courses"
+          :key="`${course.id}.${index}`"
+          :course="course"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import CardCourse from "@/components/CardCourse";
 
 export default {
   components: {
-    Logo
-  }
-}
+    CardCourse,
+  },
+
+  data() {
+    return {
+      courses: [],
+    };
+  },
+
+  mounted() {
+    this.$axios.get("/missions").then((res) => (this.courses = res.data));
+  },
+};
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
+.main_page {
+  padding: 0 10px;
+  margin: 0;
+  background: #e7ebed;
+  color: #ecf0f1;
+  font-family: "Roboto";
   min-height: 100vh;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-align: center;
   align-items: center;
-  text-align: center;
+  width: 100%;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+a:link,
+a:hover,
+a:active,
+a:visited {
+  color: #fff;
+  text-decoration: none;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+#__nuxt {
+  width: 100%;
+  height: 100%;
+}
+.contain {
+  width: 100%;
+}
+.row {
+  overflow: scroll;
+  width: 100%;
+}
+.row__inner {
+  -webkit-transition: 450ms -webkit-transform;
+  transition: 450ms -webkit-transform;
+  transition: 450ms transform;
+  transition: 450ms transform, 450ms -webkit-transform;
+  font-size: 0;
+  white-space: nowrap;
+  margin: 70.3125px 0;
+  padding-bottom: 10px;
 }
 
-.links {
-  padding-top: 15px;
+.row__inner:hover {
+  -webkit-transform: translate3d(-62.5px, 0, 0);
+  transform: translate3d(-62.5px, 0, 0);
+}
+.row__inner:hover .course {
+  opacity: 0.3;
+}
+.row__inner:hover .course:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.row__inner:hover .course:first-child {
+  margin-left: 3em;
+}
+.row__inner:hover .course:last-child {
+  margin-right: 3em;
 }
 </style>
