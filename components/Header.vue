@@ -109,4 +109,10 @@ export default {
   float: right;
   margin: 10px 14px 10px 10px;
 }
+
+@media only screen and (max-width: 600px) {
+  .header .right-area .filter {
+    float: right;
+  }
+}
 </style>

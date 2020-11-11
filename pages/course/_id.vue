@@ -17,8 +17,9 @@
       </div>
 
       <p>Status: {{ course.status }}</p>
-
-      <div class="similar-courses">
+    </div>
+    <div class="similar-courses">
+        <p>Cursos simílares:</p>
         <card-course
           v-for="similarCourse in similarCourses"
           :key="similarCourse.id"
@@ -27,7 +28,6 @@
           :margin-course="'0px 10px 0px 0px'"
         />
       </div>
-    </div>
   </div>
 </template>
 
@@ -121,4 +121,15 @@ export default {
   width: 100%;
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .details-page .image-area[data-v-560fe002] {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    float: initial;
+  }
+}
+
+
 </style>

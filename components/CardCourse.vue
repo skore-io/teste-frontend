@@ -62,7 +62,6 @@ export default {
   width: 200px;
   float: left;
   background: #fff;
-  margin: var(--margin-course);
   position: relative;
 }
 
@@ -121,5 +120,16 @@ export default {
   z-index: 2;
   background: #0000008a;
   cursor: not-allowed;
+}
+
+@media only screen and (max-width: 600px) {
+  .course {
+    width: calc(100% - 40px);
+    margin: 20px!important;
+  }
+
+  .course .img-area {
+    height: initial;
+  }
 }
 </style>
