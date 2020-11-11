@@ -1,42 +1,48 @@
 <template>
-  <div class="main">
-    <div class="card">
-      <div class="card_left">
-        <img :src="course.thumb_url" />
+  <div class="details-page">
+    <div class="image-area">
+      <img :src="course.thumb_url" />
+    </div>
+    <div class="details">
+      <h1>{{ course.name }}</h1>
+      <p v-if="course.due_date">
+        Disponível até: {{ course.due_date.available_at_formated }}
+      </p>
+
+      <div v-if="course.mappedSteps" class="card_right__steps">
+        <p>Etapas:</p>
+        <p v-for="step in course.mappedSteps" :key="step.id" class="step">
+          {{ step.name }} <span v-if="step.complete"> - Completa</span>
+        </p>
       </div>
-      <div class="card_right">
-        <h1>{{ course.name }}</h1>
-        <div class="card_right__details">
-          <p v-if="course.due_date">
-            Disponível até: {{ course.due_date.available_at_formated }}
-          </p>
 
-          <div class="card_right__steps" v-if="course.mappedSteps">
-            <p>Etapas:</p>
-            <p class="step" v-for="step in course.mappedSteps" :key="step.id">
-              {{ step.name }} <span v-if="step.complete"> - Completa</span>
-            </p>
-          </div>
+      <p>Status: {{ course.status }}</p>
 
-          <p>Status: {{ course.status }}</p>
-        </div>
+      <div class="similar-courses">
+        <card-course
+          v-for="similarCourse in similarCourses"
+          :key="similarCourse.id"
+          :course="similarCourse"
+          :show-image="false"
+          :margin-course="'0px 10px 0px 0px'"
+        />
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import CardCourse from "@/components/CardCourse";
-import * as moment from "moment";
+<script type="application/javascript">
+import * as moment from 'moment';
+import CardCourse from '../../components/CardCourse';
 
 export default {
   components: {
     CardCourse,
   },
-
   data() {
     return {
       course: {},
+      similarCourses: [],
     };
   },
 
@@ -63,21 +69,21 @@ export default {
       if (res.data.due_date) {
         res.data.due_date.available_at_formated = moment(
           res.data.due_date.available_at_formated
-        ).format("DD/MM/Y");
+        ).format('DD/MM/Y');
       }
 
       switch (res.data.status) {
-        case "IN_PROGRESS":
-          res.data.status = "Em progresso, continue assim!";
+        case 'IN_PROGRESS':
+          res.data.status = 'Em progresso, continue assim!';
           break;
-        case "NOT_STARTED":
-          res.data.status = "Vamos começar esse curso fantástico vamos?";
+        case 'NOT_STARTED':
+          res.data.status = 'Vamos começar esse curso fantástico vamos?';
           break;
-        case "COMPLETED":
-          res.data.status = "Isso ai, você já completou esse curso :D";
+        case 'COMPLETED':
+          res.data.status = 'Isso ai, você já completou esse curso :D';
           break;
-        case "BLOCKED":
-          res.data.status = "Ess curso está bloqueado :(";
+        case 'BLOCKED':
+          res.data.status = 'Esse curso está bloqueado :(';
           break;
         default:
           break;
@@ -85,80 +91,34 @@ export default {
 
       this.course = res.data;
     });
+
+    this.$axios.get(`/missions`).then((res) => {
+      this.similarCourses = res.data
+        .sort(() => Math.random() - Math.random())
+        .slice(0, 3);
+    });
   },
 };
 </script>
 
-<style>
-.main {
-}
-.card {
-  max-width: 800px;
+<style lang="css" scoped>
+.details-page {
   width: 100%;
-  min-width: 300px;
-  height: 400px;
-  background: transparent;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  border-top-left-radius: 10px;
-  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
-  border-bottom-right-radius: 10px;
-}
-.card_left {
-  width: 40%;
-  height: 400px;
+  margin: 30px auto;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 30px;
   float: left;
-  overflow: hidden;
-  background: transparent;
 }
-.card_left img {
+
+.details-page .image-area {
+  display: block;
+  margin-right: 30px;
+  float: left;
+}
+
+.similar-courses {
   width: 100%;
-  height: auto;
-  border-radius: 10px 0 0 10px;
-  -webkit-border-radius: 10px 0 0 10px;
-  -moz-border-radius: 10px 0 0 10px;
-  position: relative;
-}
-.card_right {
-  width: 60%;
-  float: left;
-  background: #2f4858;
-  height: 400px;
-  border-radius: 0 0px 10px 0;
-}
-.card_right h1 {
-  color: white;
-  font-weight: 300;
-  text-align: left;
-  font-size: 45px;
-  letter-spacing: 1px;
-  margin-left: 50px;
-  margin-top: 50px;
-}
-
-.card_right__details {
-  margin-left: 50px;
-  color: #fff;
-}
-.card_right__steps {
-  margin: 20px 0px;
-}
-.card_right__steps .step {
-  color: white;
-  font-size: 16px;
-}
-
-@media screen and (max-width: 770px) {
-  .card_right {
-    width: 100%;
-  }
-
-  .card_left {
-    width: 100%;
-  }
+  margin-top: 20px;
 }
 </style>
