@@ -1,15 +1,24 @@
 <template>
   <div class="header">
     <div class="left-area">
-      <img
-        src="https://assets.website-files.com/5dcaf276c897155ba01769f4/5ed166315b6f49570099bc84_skore_brand_teal.svg"
-      />
+      <NuxtLink :to="`/`">
+        <img
+          src="https://assets.website-files.com/5dcaf276c897155ba01769f4/5ed166315b6f49570099bc84_skore_brand_teal.svg"
+        />
+      </NuxtLink>
     </div>
     <div class="right-area">
       <div class="user-area">
-        <div class="filter">
-          <select>
-            <option>Ok</option>
+        <div v-if="showFilter" class="filter">
+          <select @change="handleFilterSelect">
+            <option value="all" selected>ALL</option>
+            <option
+              v-for="filter in $store.getters.filters"
+              :key="filter"
+              :value="filter"
+            >
+              {{ filter }}
+            </option>
           </select>
         </div>
         <div class="profile">
@@ -29,10 +38,38 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      showFilter: false,
+    };
+  },
+  watch: {
+    $route(to) {
+      if (to.name !== 'index') {
+        this.showFilter = false;
+        return;
+      }
 
-<style>
+      this.showFilter = true;
+    },
+  },
+  methods: {
+    handleFilterSelect(e) {
+      this.$store.commit('setFilter', e.target.value);
+    },
+  },
+  mounted () {
+    if(this.$route.name === 'index') this.showFilter = true
+  }
+};
+</script>
+
+<style lang="css" scoped>
 .header {
   height: 50px;
+  background: #fff;
 }
 
 .header .left-area {
@@ -59,12 +96,10 @@
 
 .header .right-area .filter {
   float: left;
-  width: 100px;
   margin: 10px;
 }
 
 .header .right-area select {
-  width: 100px;
   padding: 4px;
   border: 1px solid #bfbaba;
   border-radius: 3px;
