@@ -21,13 +21,23 @@
     "express": "^4.17.1",
     "firebase-admin": "^8.9.2",
     "firebase-functions": "^3.3.0",
+    "moment": "^2.29.1",
     "moment-timezone": "^0.5.31",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^24.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.1.0",
     "jest": "^24.1.0",
+    "prettier": "^2.1.2",
     "vue-jest": "^4.0.0-0"
   }
 }
