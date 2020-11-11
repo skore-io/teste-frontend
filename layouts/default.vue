@@ -1,22 +1,27 @@
 <template>
   <div class="main-page">
-    <Header />
-    <nuxt />
+    <header-component />
+    <div class="main-page">
+      <div class="container">
+        <nuxt />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-import Header from "../components/Header";
+<script type="application/javascript">
+import HeaderComponent from '../components/Header';
+
 export default {
   components: {
-    Header,
+    HeaderComponent,
   },
 };
 </script>
 
-<style>
+<style lang="css">
 html {
-  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -26,6 +31,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background: #e7ebed;
+}
+
 *,
 *:before,
 *:after {
@@ -33,13 +42,20 @@ html {
   margin: 0;
 }
 
-.main_page {
-  padding: 0 10px;
-  margin: 0;
+.main-page {
   background: #e7ebed;
   color: #ecf0f1;
-  font-family: "Roboto";
-  min-height: 100vh;
+  font-family: 'Roboto';
   width: 100%;
+  float: left;
+  display: block;
+}
+
+.container {
+  margin: 10px 0px 0px 0px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 </style>
