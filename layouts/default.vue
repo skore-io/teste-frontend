@@ -1,13 +1,27 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="main-page">
+    <header-component />
+    <div class="main-page">
+      <div class="container">
+        <nuxt />
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
+<script type="application/javascript">
+import HeaderComponent from '../components/Header';
+
+export default {
+  components: {
+    HeaderComponent,
+  },
+};
+</script>
+
+<style lang="css">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -17,6 +31,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background: #e7ebed;
+}
+
 *,
 *:before,
 *:after {
@@ -24,32 +42,20 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.main-page {
+  background: #e7ebed;
+  color: #ecf0f1;
+  font-family: 'Roboto';
+  width: 100%;
+  float: left;
+  display: block;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.container {
+  margin: 10px 0px 0px 0px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 </style>

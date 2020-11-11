@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components > CardCourse matches snapshot 1`] = `
+<div
+  class="course"
+  props="[object Object]"
+  style="margin: 25px 0px 0px 25px;"
+>
+  <!---->
+   
+  <nuxtlink
+    to="/course/"
+  >
+    <div
+      class="img-area"
+    >
+      <img
+        alt=""
+        src="https://assets.website-files.com/5dcaf276c897155ba01769f4/5ed166315b6f49570099bc84_skore_brand_teal.svg"
+      />
+    </div>
+     
+    <div
+      class="title"
+    >
+      
+    </div>
+     
+    <div
+      class="progress"
+    >
+      <span
+        class="progress-bar"
+      >
+        <span
+          class="progress-bar-percent"
+        />
+      </span>
+    </div>
+  </nuxtlink>
+</div>
+`;
